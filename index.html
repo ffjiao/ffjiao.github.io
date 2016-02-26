@@ -198,6 +198,58 @@
 
       <div class="body-wrap">
   
+    <article id="post-CSS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/02/26/CSS/" class="article-date">
+  	<time datetime="2016-02-26T14:01:54.000Z" itemprop="datePublished">2016-02-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/26/CSS/">CSS</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="pape-mytime" class="article article-type-pape" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -320,7 +372,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/23/my-blog/">my blog</a>
+      <a class="article-title" href="/2016/01/23/my-blog/">JavaScript DOM 脚本</a>
     </h1>
   
 
@@ -329,8 +381,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>一个人来到田纳西</strong></p>
-<p><strong>毫无疑问</strong><br><em>我做的馅饼<br>是全天下</em><br><em>最好吃的</em></p>
+        <p>function addLoadEvent(func) {<br>     var oldonload=window.onload;<br>     if(typeof window.onload!=’function’) {<br>          window.onload=func;<br>     }else {<br>          oldonload();<br>          func();<br>     }<br>}</p>
+<p>function insertAfter(newElement,targetElement) {<br>     var parent=targetElement.parentNode;<br>     if(parent.lastChild==targetElement) {<br>          parent.appendChild(newElement);<br>     }else {<br>          parent.insertBefore(newElement,targetElement.nextSibling);<br>     }<br>}</p>
 
       
     </div>

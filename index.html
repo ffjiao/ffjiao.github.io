@@ -59,12 +59,12 @@
 
 <meta name="description" content="总结是进步的阶梯。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="前端Learner">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="前端Learner">
 <meta property="og:description" content="总结是进步的阶梯。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="前端Learner">
 <meta name="twitter:description" content="总结是进步的阶梯。">
 
 
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title> Hexo </title>
+  <title> 前端Learner </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -116,7 +116,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
+      <span class="site-title">前端Learner</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -184,6 +184,105 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/18/bibao/" itemprop="url">
+                  闭包详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-18T19:50:16+08:00" content="2016-05-18">
+              2016-05-18
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/18/bibao/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/bibao/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###闭包定义<br>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式就是在一个函数内部创建另一个函数。<br><em>注意：别再对闭包和匿名函数的关系充满疑惑了，匿名函数即没有名字的函数，而闭包是能访问函数之外定义的变量。如果一个匿名函数能访问函数之外定义的变量，那它就是一个闭包。</em><br>由于闭包也是一个函数，我们首先要了解函数第一次被调用时发生了什么。当某个函数被调用时，会创建一个执行环境及相应的作用域链。然后，使用arguments和其他命名参数的值来初始化函数的活动对象。在作用域链中，被调用的函数的活动对象处于<strong>第一位</strong>，它外部函数的活动对象处于<strong>第二位</strong>，外部的外部活动对象处于<strong>第三位</strong>……直到作用域链终点的全局执行环境。</p>
+<p>###执行环境<br>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中，虽然代码无法访问该对象，但解析器在处理数据时会在后台使用它。（执行环境即在执行的瞬间，它所包含的变量对象）<br>全局执行环境在浏览器中被认为是window对象，因此所有全局变量和函数都是作为window对象的属性和方法创建的。<br>全局环境的变量对象始终存在（全局执行环境直到应用程序退出，例如关闭网页或浏览器时才会被销毁），而局部环境的变量对象，则只在函数执行的过程中存在，执行完毕后，该环境被销毁。<br>var a=1;<br>function test(){<br>    alert(a);<br>}<br>test(); //1<br>上例即一个简单的闭包，test()的作用域链包含两个活动对象，它自身的变量对象(arguments对象)和全局环境的变量对象(a)，函数test()可以访问变量a,是因为可以在作用域链中找到a。<br>首先它会从当前执行的代码所在的环境即test()函数内查找变量a,没找到，于是到它的包含环境（全局执行环境的变量对象）中查找，找到，停止搜索。变量查询是有代价的，明显访问局部变量要比访问全局变量更快，因为不用向上搜索作用域链。</p>
+<p>###作用域链<br> 当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在的环境的变量对象，如果这个环境是函数，则将其活动对象作为变量对象，活动对象在最开始时只包含一个变量，即arguments 对象。 arguments对象在全局环境中是不存在的。作用域链中的下一个变量对象来自包含(外部)环境，而再下一个变量对象则来自下一个包含环境，这样，一直延续到全局变量，全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
+<p> ###闭包例子<br> <em>注意：闭包只能取得包含函数中任何变量的最后一个值</em><br> ‘<br>function createFunctions(){<br>    var result=new Array();<br>    for(var i=0;i&lt;10;i++){<br>        result[i]=function(){<br>            return i;<br>        };<br>    }<br>    return result;<br>}<br> ‘<br>上例返回一个函数数组，表面上似乎每个函数的都返回自己的索引值，实际上，每个函数都<br>返回10.因为函数result[i]保存着包含函数createFunctions()的活动对象，所以他们引用的是同一个变量i.当createFunctions()函数返回后，变量i的值是10，此时每个函数引用都保存变量i的同一个变量对象，所以每个函数内部i的值都是10.<br><strong>解决办法：</strong>不要让它访问全局变量i,由于函数参数是按值传递的，所以就会将变量i的当前值复制给参数num,而在这个匿名函数内部，又创建并返回了一个访问num的闭包，这样，result数组中每个函数都有自己num变量的一个副本，因此就可以返回各自不同的数值。<br>‘<br>function createFunctions(){<br>    var result=new Array();<br>    for(var i=0;i&lt;10;i++){<br>        result[i]=(function(num){<br>            return function(){<br>                return num;<br>            }<br>        })(i);<br>    }<br>}<br>‘</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -818,7 +917,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

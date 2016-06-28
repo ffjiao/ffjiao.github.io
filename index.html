@@ -631,17 +631,10 @@
 <h3 id="u4EE3_u7801_u5206_u6790_u4E09"><a href="#u4EE3_u7801_u5206_u6790_u4E09" class="headerlink" title="代码分析三"></a>代码分析三</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="number">4</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出4</span></span><br></pre></td></tr></table></figure>
 <p>如果变量声明的同时又初始化，或者先声明之后再初始化，则变量优先级高于函数声明</p>
 <h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>变量声明提升：变量声明在进入执行上下文就完成了。</li>
+<li><strong> 变量声明提升：变量声明在进入执行上下文就完成了。</strong><br>只要变量在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；**</li>
+<li>** 函数声明提升：执行代码之前会先读取函数声明，意味着可以把函数声明放在调用它的语句后面。<br>只要函数在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</li>
+<li><strong> 变量和函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。</strong><br>同一个名称标识x，既有变量声明var x，又有函数声明function x() {} 不管二者声明的顺序， 函数声明会覆盖变量声明， 也就是说， 此时x的值是声明的函数function x() {}。注意：如果在变量声明的同时初始化x，或是在之后对x进行赋值，此时x的值是变量的值。</li>
 </ol>
-<p>只要变量在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</p>
-<ol>
-<li>函数声明提升：执行代码之前会先读取函数声明，意味着可以把函数声明放在调用它的语句后面。</li>
-</ol>
-<p>只要函数在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</p>
-<ol>
-<li><strong> 变量和函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。</strong></li>
-</ol>
-<p>同一个名称标识x，既有变量声明var x，又有函数声明function x() {} 不管二者声明的顺序， 函数声明会覆盖变量声明， 也就是说， 此时x的值是声明的函数function x() {}。注意：如果在变量声明的同时初始化x，或是在之后对x进行赋值，此时x的值是变量的值。</p>
 
       
     </div>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="函数声明提升：在执行代码之前会先读取函数声明，即可以把函数声明放在调用它的语句后面。1234test();  //It&apos;s a test.function test()&amp;#123;    alert(&quot;It&apos;s a test.&quot;);&amp;#125;
 变量声明提升：12console.log(&quot;x&quot; in window); //truevar x=0;
 代码执行时js引擎会将声明语句提升至代码最上方，变">
-<meta property="og:updated_time" content="2016-06-28T11:05:42.990Z">
+<meta property="og:updated_time" content="2016-06-28T11:12:19.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的变量和函数声明提升">
 <meta name="twitter:description" content="函数声明提升：在执行代码之前会先读取函数声明，即可以把函数声明放在调用它的语句后面。1234test();  //It&apos;s a test.function test()&amp;#123;    alert(&quot;It&apos;s a test.&quot;);&amp;#125;
@@ -259,10 +259,9 @@
 </ol>
 <p>只要函数在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</p>
 <ol>
-<li><p><strong> 变量和函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。</strong></p>
-<p>同一个名称标识x，既有变量声明var x，又有函数声明function x() {} 不管二者声明的顺序， 函数声明会覆盖变量声明， 也就是说， 此时x的值是声明的函数function x() {}。注意：如果在变量声明的同时初始化x，或是在之后对x进行赋值，此时x的值是变量的值。</p>
-</li>
+<li><strong> 变量和函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。</strong></li>
 </ol>
+<p>同一个名称标识x，既有变量声明var x，又有函数声明function x() {} 不管二者声明的顺序， 函数声明会覆盖变量声明， 也就是说， 此时x的值是声明的函数function x() {}。注意：如果在变量声明的同时初始化x，或是在之后对x进行赋值，此时x的值是变量的值。</p>
 
       
     </div>

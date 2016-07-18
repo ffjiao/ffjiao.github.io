@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/我的第一篇博客/" style="font-size: 10px;">我的第一篇博客</a>
+						<a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/我的第一篇博客/" style="font-size: 10px;">我的第一篇博客</a>
 					</div>
 				</section>
 				
@@ -197,61 +197,6 @@
 </nav>
 
       <div class="body-wrap">
-  
-    <article id="post-JS简介" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/24/JS简介/" class="article-date">
-  	<time datetime="2016-06-24T01:21:55.160Z" itemprop="datePublished">2016-06-24</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><a href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A" class="headerlink" title="一个完整的JavaScript实现包括："></a>一个完整的JavaScript实现包括：</h3><ul>
-<li>核心（ECMAScript）</li>
-<li>文档对象模型（DOM）</li>
-<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>使用async属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚本按顺序执行。<br>&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。<br>如果启用了脚本，浏览器不会显示&lt;noscript&gt;元素中任何内容。</p>
-<h3 id="u6807_u8BC6_u7B26_uFF1A"><a href="#u6807_u8BC6_u7B26_uFF1A" class="headerlink" title="标识符："></a>标识符：</h3><p>采用驼峰大小写格式<br>第一个字符必须是一个字母，下划线(_)或美元符号(￥)<br>其他字符可以是字母，数字，下划线或美元符号</p>
-<h3 id="u53D8_u91CF_uFF1A"><a href="#u53D8_u91CF_uFF1A" class="headerlink" title="变量："></a>变量：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> message=<span class="string">"hello"</span>; <span class="comment">//局部变量</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">alert(message); <span class="comment">//test()执行完后，局部变量message销毁，故错误</span></span><br></pre></td></tr></table></figure>
-<p>用var操作符定义的变量将成为定义该变量的作用域中的局部变量。局部变量在函数退出后就会被销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">alert(message); <span class="comment">//hello</span></span><br></pre></td></tr></table></figure></p>
-<p>message为全局变量，只要调用过一次test()函数，这个变量就有了定义，就可以在函数外部的任何地方被访问到。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test();</span></span><br><span class="line">alert(message); <span class="comment">//test()函数未调用，message没有创建，故错误</span></span><br></pre></td></tr></table></figure></p>
-<p>只有当函数被调用时，才会创建变量并为其赋值，变量才能使用。</p>
-<h3 id="ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A"><a href="#ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A" class="headerlink" title="ECMAScript中的基本数据类型包括:"></a>ECMAScript中的基本数据类型包括:</h3><p>undefined,null,Boolean,Number,String</p>
-<h3 id="ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B"><a href="#ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B" class="headerlink" title="ECMAScript中的复杂数据类型即Object，是所有对象的基础类型"></a>ECMAScript中的复杂数据类型即Object，是所有对象的基础类型</h3><p>ECMAScript提供的基本操作符包括算术操作符，布尔操作符，关系操作符，相等操作符及赋值操作符等<br>无需指定函数的返回值，因为任何ECMAScript函数都可以在任何时候返回任何值，未指定返回值的函数返回的是undefined值。<br>ECMAScript中没有函数签名（接受的参数的类型和数量）的概念，其函数参数是以一个包含零个或多个值的数组的形式传递的<br>可以向ECMAScript函数传递任意数量的参数，并且可以用arguments对象来访问这些参数，由于不存在函数签名的特性，故ECMAScript函数不能重载。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//弥补了ECMAScript不能重载的缺憾</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSth</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">1</span>)</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="number">10</span>);</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">2</span>)</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">"arguments[0]+arguments[1]"</span>);</span><br><span class="line">&#125;</span><br><span class="line">doSth(<span class="number">2</span>); <span class="comment">//12</span></span><br><span class="line">doSth(<span class="number">3</span>,<span class="number">4</span>);<span class="comment">//7</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -584,6 +529,76 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/变量、函数声明提升/">变量、函数声明提升</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-JS简介" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/05/14/JS简介/" class="article-date">
+  	<time datetime="2015-05-14T13:24:19.000Z" itemprop="datePublished">2015-05-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/14/JS简介/">JavaScript简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><a href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A" class="headerlink" title="一个完整的JavaScript实现包括："></a>一个完整的JavaScript实现包括：</h3><ul>
+<li>核心（ECMAScript）</li>
+<li>文档对象模型（DOM）</li>
+<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用async属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚本按顺序执行。<br>&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。<br>如果启用了脚本，浏览器不会显示&lt;noscript&gt;元素中任何内容。</p>
+<h3 id="u6807_u8BC6_u7B26_uFF1A"><a href="#u6807_u8BC6_u7B26_uFF1A" class="headerlink" title="标识符："></a>标识符：</h3><p>采用驼峰大小写格式<br>第一个字符必须是一个字母，下划线(_)或美元符号(￥)<br>其他字符可以是字母，数字，下划线或美元符号</p>
+<h3 id="u53D8_u91CF_uFF1A"><a href="#u53D8_u91CF_uFF1A" class="headerlink" title="变量："></a>变量：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> message=<span class="string">"hello"</span>; <span class="comment">//局部变量</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">alert(message); <span class="comment">//test()执行完后，局部变量message销毁，故错误</span></span><br></pre></td></tr></table></figure>
+<p>用var操作符定义的变量将成为定义该变量的作用域中的局部变量。局部变量在函数退出后就会被销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">alert(message); <span class="comment">//hello</span></span><br></pre></td></tr></table></figure></p>
+<p>message为全局变量，只要调用过一次test()函数，这个变量就有了定义，就可以在函数外部的任何地方被访问到。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test();</span></span><br><span class="line">alert(message); <span class="comment">//test()函数未调用，message没有创建，故错误</span></span><br></pre></td></tr></table></figure></p>
+<p>只有当函数被调用时，才会创建变量并为其赋值，变量才能使用。</p>
+<h3 id="ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A"><a href="#ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A" class="headerlink" title="ECMAScript中的基本数据类型包括:"></a>ECMAScript中的基本数据类型包括:</h3><p>undefined,null,Boolean,Number,String</p>
+<h3 id="ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B"><a href="#ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B" class="headerlink" title="ECMAScript中的复杂数据类型即Object，是所有对象的基础类型"></a>ECMAScript中的复杂数据类型即Object，是所有对象的基础类型</h3><p>ECMAScript提供的基本操作符包括算术操作符，布尔操作符，关系操作符，相等操作符及赋值操作符等<br>无需指定函数的返回值，因为任何ECMAScript函数都可以在任何时候返回任何值，未指定返回值的函数返回的是undefined值。<br>ECMAScript中没有函数签名（接受的参数的类型和数量）的概念，其函数参数是以一个包含零个或多个值的数组的形式传递的<br>可以向ECMAScript函数传递任意数量的参数，并且可以用arguments对象来访问这些参数，由于不存在函数签名的特性，故ECMAScript函数不能重载。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//弥补了ECMAScript不能重载的缺憾</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSth</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">1</span>)</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="number">10</span>);</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">2</span>)</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">"arguments[0]+arguments[1]"</span>);</span><br><span class="line">&#125;</span><br><span class="line">doSth(<span class="number">2</span>); <span class="comment">//12</span></span><br><span class="line">doSth(<span class="number">3</span>,<span class="number">4</span>);<span class="comment">//7</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
 	</div>
 
       

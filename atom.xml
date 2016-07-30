@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>前端Learner</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-01-23T12:30:52.505Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>ffjiao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/06/24/hello-world/"/>
+    <id>http://yoursite.com/2016/06/24/hello-world/</id>
+    <published>2016-06-24T01:21:55.144Z</published>
+    <updated>2016-01-23T12:30:52.505Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>闭包详解</title>
+    <link href="http://yoursite.com/2016/05/18/%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://yoursite.com/2016/05/18/闭包详解/</id>
+    <published>2016-05-18T11:50:16.000Z</published>
+    <updated>2016-05-18T12:58:31.190Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="u95ED_u5305_u5B9A_u4E49"><a href="#u95ED_u5305_u5B9A_u4E49" class="headerlink" title="闭包定义"></a>闭包定义</h3><p>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式就是在一个函数内部创建另一个函数。<br><em>注意：别再对闭包和匿名函数的关系充满疑惑了，匿名函数即没有名字的函数，而闭包是能访问函数之外定义的变量。如果一个匿名函数能访问函数之外定义的变量，那它就是一个闭包。</em><br>由于闭包也是一个函数，我们首先要了解函数第一次被调用时发生了什么。当某个函数被调用时，会创建一个执行环境及相应的作用域链。然后，使用arguments和其他命名参数的值来初始化函数的活动对象。在作用域链中，被调用的函数的活动对象处于<strong>第一位</strong>，它外部函数的活动对象处于<strong>第二位</strong>，外部的外部活动对象处于<strong>第三位</strong>……直到作用域链终点的全局执行环境。</p>
+<h3 id="u6267_u884C_u73AF_u5883"><a href="#u6267_u884C_u73AF_u5883" class="headerlink" title="执行环境"></a>执行环境</h3><p>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中，虽然代码无法访问该对象，但解析器在处理数据时会在后台使用它。（执行环境即在执行的瞬间，它所包含的变量对象）<br>全局执行环境在浏览器中被认为是window对象，因此所有全局变量和函数都是作为window对象的属性和方法创建的。<br>全局环境的变量对象始终存在（全局执行环境直到应用程序退出，例如关闭网页或浏览器时才会被销毁），而局部环境的变量对象，则只在函数执行的过程中存在，执行完毕后，该环境被销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(a);</div><div class="line">&#125;</div><div class="line">test(); <span class="comment">//1</span></div></pre></td></tr></table></figure></p>
+<p>上例即一个简单的闭包，test()的作用域链包含两个活动对象，它自身的变量对象(arguments对象)和全局环境的变量对象(a)，函数test()可以访问变量a,是因为可以在作用域链中找到a。<br>首先它会从当前执行的代码所在的环境即test()函数内查找变量a,没找到，于是到它的包含环境（全局执行环境的变量对象）中查找，找到，停止搜索。变量查询是有代价的，明显访问局部变量要比访问全局变量更快，因为不用向上搜索作用域链。</p>
+<h3 id="u4F5C_u7528_u57DF_u94FE"><a href="#u4F5C_u7528_u57DF_u94FE" class="headerlink" title="作用域链"></a>作用域链</h3><p>当代码在一个环境中执行时，会创建变量对象的一个作用域链。作用域链的用途，是保证对执行环境有权访问的所有变量和函数的有序访问。作用域链的前端，始终都是当前执行的代码所在的环境的变量对象，如果这个环境是函数，则将其活动对象作为变量对象，活动对象在最开始时只包含一个变量，即arguments 对象。 arguments对象在全局环境中是不存在的。作用域链中的下一个变量对象来自包含(外部)环境，而再下一个变量对象则来自下一个包含环境，这样，一直延续到全局变量，全局执行环境的变量对象始终都是作用域链中的最后一个对象。</p>
+<h3 id="u95ED_u5305_u4F8B_u5B50"><a href="#u95ED_u5305_u4F8B_u5B50" class="headerlink" title="闭包例子"></a>闭包例子</h3><p> <em>注意：闭包只能取得包含函数中任何变量的最后一个值</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> result=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">		result[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> i;</div><div class="line">		&#125;;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上例返回一个函数数组，表面上似乎每个函数的都返回自己的索引值，实际上，每个函数都<br>返回10.因为函数result[i]保存着包含函数createFunctions()的活动对象，所以他们引用的是同一个变量i.当createFunctions()函数返回后，变量i的值是10，此时每个函数引用都保存变量i的同一个变量对象，所以每个函数内部i的值都是10.<br><strong>解决办法：</strong>不要让它访问全局变量i,由于函数参数是按值传递的，所以就会将变量i的当前值复制给参数num,而在这个匿名函数内部，又创建并返回了一个访问num的闭包，这样，result数组中每个函数都有自己num变量的一个副本，因此就可以返回各自不同的数值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunctions</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> result=<span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</div><div class="line">		result[i]=(<span class="function"><span class="keyword">function</span>(<span class="params">num</span>)</span>&#123;</div><div class="line">			<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="keyword">return</span> num;</div><div class="line">			&#125;</div><div class="line">		&#125;)(i);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u95ED_u5305_u5B9A_u4E49&quot;&gt;&lt;a href=&quot;#u95ED_u5305_u5B9A_u4E49&quot; class=&quot;headerlink&quot; title=&quot;闭包定义&quot;&gt;&lt;/a&gt;闭包定义&lt;/h3&gt;&lt;p&gt;闭包是指有权访问另一个函数作用域中的变量的函数。
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CSS</title>
+    <link href="http://yoursite.com/2016/02/26/CSS/"/>
+    <id>http://yoursite.com/2016/02/26/CSS/</id>
+    <published>2016-02-26T14:01:54.000Z</published>
+    <updated>2016-02-26T14:01:54.548Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mytime</title>
+    <link href="http://yoursite.com/2016/02/26/mytime/"/>
+    <id>http://yoursite.com/2016/02/26/mytime/</id>
+    <published>2016-02-26T08:00:24.000Z</published>
+    <updated>2016-02-26T08:00:24.206Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript DOM 脚本</title>
+    <link href="http://yoursite.com/2016/01/23/my-blog/"/>
+    <id>http://yoursite.com/2016/01/23/my-blog/</id>
+    <published>2016-01-23T12:32:08.000Z</published>
+    <updated>2016-02-26T13:51:43.755Z</updated>
+    
+    <content type="html"><![CDATA[<p>function addLoadEvent(func) {<br>     var oldonload=window.onload;<br>     if(typeof window.onload!=’function’) {<br>          window.onload=func;<br>     }else {<br>          oldonload();<br>          func();<br>     }<br>}</p>
+<p>function insertAfter(newElement,targetElement) {<br>     var parent=targetElement.parentNode;<br>     if(parent.lastChild==targetElement) {<br>          parent.appendChild(newElement);<br>     }else {<br>          parent.insertBefore(newElement,targetElement.nextSibling);<br>     }<br>}</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;function addLoadEvent(func) {&lt;br&gt;     var oldonload=window.onload;&lt;br&gt;     if(typeof window.onload!=’function’) {&lt;br&gt;          window.onl
+    
+    </summary>
+    
+    
+      <category term="我的第一篇博客" scheme="http://yoursite.com/tags/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript中的变量和函数声明提升</title>
+    <link href="http://yoursite.com/2016/01/23/%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
+    <id>http://yoursite.com/2016/01/23/声明提升/</id>
+    <published>2016-01-23T12:32:08.000Z</published>
+    <updated>2016-06-28T11:27:51.105Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="函数声明提升："></a>函数声明提升：</h3><p>在执行代码之前会先读取函数声明，即可以把函数声明放在调用它的语句后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test();  <span class="comment">//It's a test.</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"It's a test."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="变量声明提升："></a>变量声明提升：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>代码执行时js引擎会将声明语句提升至代码最上方，变为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>);</div><div class="line">x=<span class="number">0</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="u4EE3_u7801_u5206_u6790_u4E00"><a href="#u4EE3_u7801_u5206_u6790_u4E00" class="headerlink" title="代码分析一"></a>代码分析一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出function x()&#123; &#125;</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">4</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div></pre></td></tr></table></figure>
+<p>实际执行的代码为，先将 var x=4 拆分为 var x; 和 x = 4; 两行，再将 var x; 和 function x(){} 两行提升至最上方变成：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="built_in">console</span>.log(x);</div><div class="line">x=<span class="number">4</span>;</div></pre></td></tr></table></figure></p>
+<p>所以最终函数声明的x覆盖了变量声明的x，console.log输出为x函数。</p>
+<h3 id="u4EE3_u7801_u5206_u6790_u4E8C"><a href="#u4EE3_u7801_u5206_u6790_u4E8C" class="headerlink" title="代码分析二"></a>代码分析二</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出function x()&#123; &#125;</span></div></pre></td></tr></table></figure>
+<p>函数声明会覆盖变量声明</p>
+<h3 id="u4EE3_u7801_u5206_u6790_u4E09"><a href="#u4EE3_u7801_u5206_u6790_u4E09" class="headerlink" title="代码分析三"></a>代码分析三</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x=<span class="number">4</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出4</span></div></pre></td></tr></table></figure>
+<p>如果变量声明的同时又初始化，或者先声明之后再初始化，则变量优先级高于函数声明</p>
+<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><strong> 变量声明提升：变量声明在进入执行上下文就完成了。</strong><br>只要变量在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</li>
+<li><strong> 函数声明提升：执行代码之前会先读取函数声明，意味着可以把函数声明放在调用它的语句后面。</strong><br>只要函数在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</li>
+<li><strong> 变量和函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。</strong><br>同一个名称标识x，既有变量声明var x，又有函数声明function x() {} 不管二者声明的顺序， 函数声明会覆盖变量声明， 也就是说， 此时x的值是声明的函数function x() {}。注意：如果在变量声明的同时初始化x，或是在之后对x进行赋值，此时x的值是变量的值。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot;&gt;&lt;a href=&quot;#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot; class=&quot;headerlink&quot; title=&quot;函数声明提升：&quot;&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="变量、函数声明提升" scheme="http://yoursite.com/tags/%E5%8F%98%E9%87%8F%E3%80%81%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript简介</title>
+    <link href="http://yoursite.com/2015/05/14/JS%E7%AE%80%E4%BB%8B/"/>
+    <id>http://yoursite.com/2015/05/14/JS简介/</id>
+    <published>2015-05-14T13:24:19.000Z</published>
+    <updated>2016-07-18T01:39:42.733Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><a href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A" class="headerlink" title="一个完整的JavaScript实现包括："></a>一个完整的JavaScript实现包括：</h3><ul>
+<li>核心（ECMAScript）</li>
+<li>文档对象模型（DOM）</li>
+<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用async属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚本按顺序执行。<br>&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。<br>如果启用了脚本，浏览器不会显示&lt;noscript&gt;元素中任何内容。</p>
+<h3 id="u6807_u8BC6_u7B26_uFF1A"><a href="#u6807_u8BC6_u7B26_uFF1A" class="headerlink" title="标识符："></a>标识符：</h3><p>采用驼峰大小写格式<br>第一个字符必须是一个字母，下划线(_)或美元符号(￥)<br>其他字符可以是字母，数字，下划线或美元符号</p>
+<h3 id="u53D8_u91CF_uFF1A"><a href="#u53D8_u91CF_uFF1A" class="headerlink" title="变量："></a>变量：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> message=<span class="string">"hello"</span>; <span class="comment">//局部变量</span></div><div class="line">&#125;</div><div class="line">test();</div><div class="line">alert(message); <span class="comment">//test()执行完后，局部变量message销毁，故错误</span></div></pre></td></tr></table></figure>
+<p>用var操作符定义的变量将成为定义该变量的作用域中的局部变量。局部变量在函数退出后就会被销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></div><div class="line">&#125;</div><div class="line">test();</div><div class="line">alert(message); <span class="comment">//hello</span></div></pre></td></tr></table></figure></p>
+<p>message为全局变量，只要调用过一次test()函数，这个变量就有了定义，就可以在函数外部的任何地方被访问到。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//test();</span></div><div class="line">alert(message); <span class="comment">//test()函数未调用，message没有创建，故错误</span></div></pre></td></tr></table></figure></p>
+<p>只有当函数被调用时，才会创建变量并为其赋值，变量才能使用。</p>
+<h3 id="ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A"><a href="#ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A" class="headerlink" title="ECMAScript中的基本数据类型包括:"></a>ECMAScript中的基本数据类型包括:</h3><p>undefined,null,Boolean,Number,String</p>
+<h3 id="ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B"><a href="#ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B" class="headerlink" title="ECMAScript中的复杂数据类型即Object，是所有对象的基础类型"></a>ECMAScript中的复杂数据类型即Object，是所有对象的基础类型</h3><p>ECMAScript提供的基本操作符包括算术操作符，布尔操作符，关系操作符，相等操作符及赋值操作符等<br>无需指定函数的返回值，因为任何ECMAScript函数都可以在任何时候返回任何值，未指定返回值的函数返回的是undefined值。<br>ECMAScript中没有函数签名（接受的参数的类型和数量）的概念，其函数参数是以一个包含零个或多个值的数组的形式传递的<br>可以向ECMAScript函数传递任意数量的参数，并且可以用arguments对象来访问这些参数，由于不存在函数签名的特性，故ECMAScript函数不能重载。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//弥补了ECMAScript不能重载的缺憾</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSth</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">1</span>)</div><div class="line">     <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="number">10</span>);</div><div class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">2</span>)</div><div class="line">     <span class="built_in">console</span>.log(<span class="string">"arguments[0]+arguments[1]"</span>);</div><div class="line">&#125;</div><div class="line">doSth(<span class="number">2</span>); <span class="comment">//12</span></div><div class="line">doSth(<span class="number">3</span>,<span class="number">4</span>);<span class="comment">//7</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A&quot;&gt;&lt;a href=&quot;#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0
+    
+    </summary>
+    
+    
+      <category term="JS" scheme="http://yoursite.com/tags/JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>五分钟学会markdown</title>
+    <link href="http://yoursite.com/2015/05/13/markdown/"/>
+    <id>http://yoursite.com/2015/05/13/markdown/</id>
+    <published>2015-05-13T13:24:19.000Z</published>
+    <updated>2016-07-29T14:33:42.842Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Markdown_u5165_u95E8_u6307_u5357"><a href="#Markdown_u5165_u95E8_u6307_u5357" class="headerlink" title="Markdown入门指南"></a>Markdown入门指南</h2><h3 id="u6807_u9898"><a href="#u6807_u9898" class="headerlink" title="标题"></a>标题</h3><p># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>#####  五级标题<br>###### 六级标题</p>
+<h3 id="u5217_u8868"><a href="#u5217_u8868" class="headerlink" title="列表"></a>列表</h3><h4 id="u65E0_u5E8F_u5217_u8868"><a href="#u65E0_u5E8F_u5217_u8868" class="headerlink" title="无序列表"></a>无序列表</h4><p>无序列表方式：*,+,-</p>
+<h4 id="u6709_u5E8F_u5217_u8868"><a href="#u6709_u5E8F_u5217_u8868" class="headerlink" title="有序列表"></a>有序列表</h4><p>有序列表方式：1.,2.等</p>
+<h3 id="u5F15_u7528"><a href="#u5F15_u7528" class="headerlink" title="引用"></a>引用</h3><p>只需要在文本前加入>这种尖括号（大于号）即可</p>
+<h3 id="u56FE_u7247"><a href="#u56FE_u7247" class="headerlink" title="图片"></a>图片</h3><p>插入图片链接：![描述](url)</p>
+<h3 id="u8F6C_u4E49_u5B57_u7B26"><a href="#u8F6C_u4E49_u5B57_u7B26" class="headerlink" title="转义字符"></a>转义字符</h3><p>\ 反斜杠<br>` 反引号<br>* 星号<br>_ 下划线<br>{} 大括号<br>[] 中括号<br>() 小括号<br># 井号<br>+ 加号<br>- 减号<br>. 英文句号<br>! 感叹号</p>
+<h3 id="u7C97_u4F53_u4E0E_u659C_u4F53"><a href="#u7C97_u4F53_u4E0E_u659C_u4F53" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h3><p>粗体：用两个*包含一段文本就是粗体；<br>斜体：用一个*包含一段文本就是斜体</p>
+<h3 id="u4EE3_u7801_u6846"><a href="#u4EE3_u7801_u6846" class="headerlink" title="代码框"></a>代码框</h3><p>```语言名，如javascript<br>中间放代码，代码使用tab键缩进即可<br>```</p>
+<h3 id="u5206_u5272_u7EBF"><a href="#u5206_u5272_u7EBF" class="headerlink" title="分割线"></a>分割线</h3><p>只需要三个*</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Markdown_u5165_u95E8_u6307_u5357&quot;&gt;&lt;a href=&quot;#Markdown_u5165_u95E8_u6307_u5357&quot; class=&quot;headerlink&quot; title=&quot;Markdown入门指南&quot;&gt;&lt;/a&gt;Markdown入门
+    
+    </summary>
+    
+    
+      <category term="markdown" scheme="http://yoursite.com/tags/markdown/"/>
+    
+  </entry>
+  
+</feed>

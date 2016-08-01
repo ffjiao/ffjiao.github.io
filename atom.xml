@@ -117,11 +117,11 @@
   </entry>
   
   <entry>
-    <title>JavaScript中的变量和函数声明提升</title>
+    <title>声明提升</title>
     <link href="http://yoursite.com/2016/01/23/%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
     <id>http://yoursite.com/2016/01/23/声明提升/</id>
     <published>2016-01-23T12:32:08.000Z</published>
-    <updated>2016-06-28T11:27:51.105Z</updated>
+    <updated>2016-08-01T02:32:24.830Z</updated>
     
     <content type="html"><![CDATA[<h3 id="u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="函数声明提升："></a>函数声明提升：</h3><p>在执行代码之前会先读取函数声明，即可以把函数声明放在调用它的语句后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test();  <span class="comment">//It's a test.</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"It's a test."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="变量声明提升："></a>变量声明提升：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">0</span>;</div></pre></td></tr></table></figure>
@@ -145,6 +145,8 @@
       &lt;h3 id=&quot;u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot;&gt;&lt;a href=&quot;#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot; class=&quot;headerlink&quot; title=&quot;函数声明提升：&quot;&gt;&lt;
     
     </summary>
+    
+      <category term="-front" scheme="http://yoursite.com/categories/front/"/>
     
     
       <category term="变量、函数声明提升" scheme="http://yoursite.com/tags/%E5%8F%98%E9%87%8F%E3%80%81%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>

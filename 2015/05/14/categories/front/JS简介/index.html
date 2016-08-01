@@ -1,0 +1,706 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="前端Learner" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一个完整的JavaScript实现包括：
+核心（ECMAScript）
+文档对象模型（DOM）
+浏览器对象模型（BOM）所有的&amp;lt;script&amp;gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&amp;lt;script&amp;gt;标签放在页面最后，即主要内容后面&amp;lt;/body&amp;gt;标签前面。使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript简介">
+<meta property="og:url" content="http://yoursite.com/2015/05/14/categories/front/JS简介/index.html">
+<meta property="og:site_name" content="前端Learner">
+<meta property="og:description" content="一个完整的JavaScript实现包括：
+核心（ECMAScript）
+文档对象模型（DOM）
+浏览器对象模型（BOM）所有的&amp;lt;script&amp;gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&amp;lt;script&amp;gt;标签放在页面最后，即主要内容后面&amp;lt;/body&amp;gt;标签前面。使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行">
+<meta property="og:updated_time" content="2016-07-30T13:26:04.837Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript简介">
+<meta name="twitter:description" content="一个完整的JavaScript实现包括：
+核心（ECMAScript）
+文档对象模型（DOM）
+浏览器对象模型（BOM）所有的&amp;lt;script&amp;gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&amp;lt;script&amp;gt;标签放在页面最后，即主要内容后面&amp;lt;/body&amp;gt;标签前面。使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/05/14/categories/front/JS简介/"/>
+
+  <title> JavaScript简介 | 前端Learner </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?d67a1371e51d6bc199efc84a71cbfe46";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">前端Learner</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript简介
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-14T21:24:19+08:00" content="2015-05-14">
+              2015-05-14
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/14/categories/front/JS简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/14/categories/front/JS简介/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><a href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A" class="headerlink" title="一个完整的JavaScript实现包括："></a>一个完整的JavaScript实现包括：</h3><ul>
+<li>核心（ECMAScript）</li>
+<li>文档对象模型（DOM）</li>
+<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用async属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚本按顺序执行。<br>&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。<br>如果启用了脚本，浏览器不会显示&lt;noscript&gt;元素中任何内容。</p>
+<h3 id="u6807_u8BC6_u7B26_uFF1A"><a href="#u6807_u8BC6_u7B26_uFF1A" class="headerlink" title="标识符："></a>标识符：</h3><p>采用驼峰大小写格式<br>第一个字符必须是一个字母，下划线(_)或美元符号(￥)<br>其他字符可以是字母，数字，下划线或美元符号</p>
+<h3 id="u53D8_u91CF_uFF1A"><a href="#u53D8_u91CF_uFF1A" class="headerlink" title="变量："></a>变量：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> message=<span class="string">"hello"</span>; <span class="comment">//局部变量</span></div><div class="line">&#125;</div><div class="line">test();</div><div class="line">alert(message); <span class="comment">//test()执行完后，局部变量message销毁，故错误</span></div></pre></td></tr></table></figure>
+<p>用var操作符定义的变量将成为定义该变量的作用域中的局部变量。局部变量在函数退出后就会被销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></div><div class="line">&#125;</div><div class="line">test();</div><div class="line">alert(message); <span class="comment">//hello</span></div></pre></td></tr></table></figure></p>
+<p>message为全局变量，只要调用过一次test()函数，这个变量就有了定义，就可以在函数外部的任何地方被访问到。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    message=<span class="string">"hello"</span>; <span class="comment">//全局变量</span></div><div class="line">&#125;</div><div class="line"><span class="comment">//test();</span></div><div class="line">alert(message); <span class="comment">//test()函数未调用，message没有创建，故错误</span></div></pre></td></tr></table></figure></p>
+<p>只有当函数被调用时，才会创建变量并为其赋值，变量才能使用。</p>
+<h3 id="ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A"><a href="#ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A" class="headerlink" title="ECMAScript中的基本数据类型包括:"></a>ECMAScript中的基本数据类型包括:</h3><p>undefined,null,Boolean,Number,String</p>
+<h3 id="ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B"><a href="#ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B" class="headerlink" title="ECMAScript中的复杂数据类型即Object，是所有对象的基础类型"></a>ECMAScript中的复杂数据类型即Object，是所有对象的基础类型</h3><p>ECMAScript提供的基本操作符包括算术操作符，布尔操作符，关系操作符，相等操作符及赋值操作符等<br>无需指定函数的返回值，因为任何ECMAScript函数都可以在任何时候返回任何值，未指定返回值的函数返回的是undefined值。<br>ECMAScript中没有函数签名（接受的参数的类型和数量）的概念，其函数参数是以一个包含零个或多个值的数组的形式传递的<br>可以向ECMAScript函数传递任意数量的参数，并且可以用arguments对象来访问这些参数，由于不存在函数签名的特性，故ECMAScript函数不能重载。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//弥补了ECMAScript不能重载的缺憾</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSth</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">1</span>)</div><div class="line">     <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>]+<span class="number">10</span>);</div><div class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">arguments</span>.length==<span class="number">2</span>)</div><div class="line">     <span class="built_in">console</span>.log(<span class="string">"arguments[0]+arguments[1]"</span>);</div><div class="line">&#125;</div><div class="line">doSth(<span class="number">2</span>); <span class="comment">//12</span></div><div class="line">doSth(<span class="number">3</span>,<span class="number">4</span>);<span class="comment">//7</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS/" rel="tag">#JS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/05/13/markdown/" rel="next" title="五分钟学会markdown">
+                <i class="fa fa-chevron-left"></i> 五分钟学会markdown
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/14/JS简介/" rel="prev" title="JavaScript简介">
+                JavaScript简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/05/14/categories/front/JS简介/"
+     data-title="JavaScript简介"
+     data-content=""
+     data-url="http://yoursite.com/2015/05/14/categories/front/JS简介/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/05/14/categories/front/JS简介/"
+           data-title="JavaScript简介" data-url="http://yoursite.com/2015/05/14/categories/front/JS简介/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xux3c.com1.z0.glb.clouddn.com/ffj.jpg"
+               alt="ffjiao" />
+          <p class="site-author-name" itemprop="name">ffjiao</p>
+          <p class="site-description motion-element" itemprop="description">总结是进步的阶梯。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ffjiao" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="#" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="#" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="twitter" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><span class="nav-number">1.</span> <span class="nav-text">一个完整的JavaScript实现包括：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6807_u8BC6_u7B26_uFF1A"><span class="nav-number">2.</span> <span class="nav-text">标识符：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u53D8_u91CF_uFF1A"><span class="nav-number">3.</span> <span class="nav-text">变量：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript_u4E2D_u7684_u57FA_u672C_u6570_u636E_u7C7B_u578B_u5305_u62EC_3A"><span class="nav-number">4.</span> <span class="nav-text">ECMAScript中的基本数据类型包括:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript_u4E2D_u7684_u590D_u6742_u6570_u636E_u7C7B_u578B_u5373Object_uFF0C_u662F_u6240_u6709_u5BF9_u8C61_u7684_u57FA_u7840_u7C7B_u578B"><span class="nav-number">5.</span> <span class="nav-text">ECMAScript中的复杂数据类型即Object，是所有对象的基础类型</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ffjiao</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"ffjiao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>

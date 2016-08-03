@@ -18,7 +18,7 @@
 核心（ECMAScript）
 文档对象模型（DOM）
 浏览器对象模型（BOM）所有的&amp;lt;script&amp;gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&amp;lt;script&amp;gt;标签放在页面最后，即主要内容后面&amp;lt;/body&amp;gt;标签前面。使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行">
-<meta property="og:updated_time" content="2016-07-30T13:26:04.837Z">
+<meta property="og:updated_time" content="2016-08-02T14:15:31.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript简介">
 <meta name="twitter:description" content="一个完整的JavaScript实现包括：
@@ -125,7 +125,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/我的第一篇博客/" style="font-size: 10px;">我的第一篇博客</a>
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JavaScript高级程序设计/" style="font-size: 10px;">JavaScript高级程序设计</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/跨域-JS/" style="font-size: 10px;">跨域,JS</a> <a href="/tags/闭包-JS/" style="font-size: 10px;">闭包,JS</a>
 					</div>
 				</section>
 				
@@ -237,6 +237,10 @@
 
 
                                         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front/">-front</a>
+	</div>
+
 
                                             <div class="clearfix"></div>
                                 </div>
@@ -280,7 +284,7 @@
                                                                             <h3 id="u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><a href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A" class="headerlink" title="一个完整的JavaScript实现包括："></a>一个完整的JavaScript实现包括：</h3><ul>
 <li>核心（ECMAScript）</li>
 <li>文档对象模型（DOM）</li>
-<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>使用async属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚本按顺序执行。<br>&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。<br>如果启用了脚本，浏览器不会显示&lt;noscript&gt;元素中任何内容。</p>
@@ -317,11 +321,11 @@
                         
 <nav id="article-nav">
   
-    <a href="/2016/01/23/声明提升/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/23/跨域/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          声明提升
+          跨域方法总结
         
       </div>
     </a>

@@ -115,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/我的第一篇博客/" style="font-size: 10px;">我的第一篇博客</a>
+						<a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JavaScript高级程序设计/" style="font-size: 10px;">JavaScript高级程序设计</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/跨域-JS/" style="font-size: 10px;">跨域,JS</a> <a href="/tags/闭包-JS/" style="font-size: 10px;">闭包,JS</a>
 					</div>
 				</section>
 				
@@ -341,8 +341,200 @@
                                         
                                             <div class="article-info article-info-index">
                                                 
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+	</div>
+
 
                                                     
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/work/">-work</a>
+	</div>
+
+
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+                                            
+            </div>
+            
+                    
+                                <!-- 多说评论框 start -->
+                                
+</article>
+
+<!--
+
+-->
+<!--
+
+-->
+
+  
+    <article id="post-CSS居中" class="article article-type-post" itemscope itemprop="blogPost">
+    <script>
+        $("html").niceScroll({
+            cursorcolor: "#2a2929",
+            cursoropacitymax: 1,
+            touchbehavior: false,
+            cursorwidth: "6px",
+            cursorborder: "5",
+            cursorborderradius: "0px",
+            autohidemode: true
+        });
+    </script>
+    
+        <div class="article-meta">
+            <a href="/2016/06/18/CSS居中/" class="article-date">
+  	<time datetime="2016-06-18T11:50:20.000Z" itemprop="datePublished">2016-06-18</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/18/CSS居中/">CSS中的居中问题</a>
+    </h1>
+  
+
+
+                            </header>
+                            
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                                    <!--02-->
+                                                    <p class="toc-button">目录</p>
+<div id="toc" class="toc-article" style="display:none;">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E00_u3001_u6C34_u5E73_u5C45_u4E2D"><span class="toc-number">1.</span> <span class="toc-text">一、水平居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E8C_u3001_u5782_u76F4_u5C45_u4E2D_uFF08_u5728CSS_u4E2D_u6709_u70B9_u9EBB_u70E6_uFF09"><span class="toc-number">2.</span> <span class="toc-text">二、垂直居中（在CSS中有点麻烦）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u4E09_u3001_u6C34_u5E73_u548C_u5782_u76F4_u90FD_u5C45_u4E2D"><span class="toc-number">3.</span> <span class="toc-text">三、水平和垂直都居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+</div>
+<script>
+    $(function(){
+
+        var width = document.body.scrollWidth;
+        if (width <=550) {
+             $(".toc-button").css("display","none");
+        }
+        $(".toc-button").hover(function(){
+            var top = $(this).get(0).offsetTop-$(".toc-article").height()/2;
+            $(".toc-article").css({
+                top:top +"px"
+            });
+            $("#toc").show(1000,function(){});
+           // $("#toc").animate({width:500;},3000);
+        },function(){
+
+        });
+        $(".toc-article").hover(function(){
+
+        },function(){
+            $("#toc").hide(1000,function(){});
+        });
+    })
+</script>
+
+                                                        
+                                                            
+                                                                
+                                                                            <p>翻译:<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">https://css-tricks.com/centering-css-complete-guide/</a></p>
+<h3 id="u4E00_u3001_u6C34_u5E73_u5C45_u4E2D"><a href="#u4E00_u3001_u6C34_u5E73_u5C45_u4E2D" class="headerlink" title="一、水平居中"></a>一、水平居中</h3><ol>
+<li>如果元素是inline或者inline-*（比如文本或者链接），它的父级元素display值为block，让子元素水平居中的样式是在父元素上设置如下样式:<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-children</span>&#123;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>适用于inline,inline-block,inline-table,inline-flex等</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo1:父元素是块级，子元素是行内元素--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span>This text is centered.<span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">role</span>=<span class="string">'navigation'</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>One<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>Two<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>Three<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>Four<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line"><span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">header</span>, <span class="selector-tag">nav</span> &#123;</div><div class="line"><span class="attribute">text-align</span>: center;</div><div class="line"><span class="attribute">background</span>: white;</div><div class="line"><span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">nav</span> <span class="selector-tag">a</span> &#123;</div><div class="line"><span class="attribute">text-decoration</span>: none;</div><div class="line"><span class="attribute">background</span>: <span class="number">#333</span>;</div><div class="line"><span class="attribute">border-radius</span>: <span class="number">5px</span>;</div><div class="line"><span class="attribute">color</span>: white;</div><div class="line"><span class="attribute">padding</span>: <span class="number">3px</span> <span class="number">8px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>如果元素是块级元素，你可以设置它的左右外边距为auto,（<strong>最好设置width值</strong>，否则会充满父元素的宽度，无法显示居中）<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-me</span>&#123;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>适用于块级元素的居中（不管你想要居中的元素或者它的父级元素的width值是多少）</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo2 居中的元素是块级元素--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center"</span>&gt;</span>I'm a block level element and am centered. </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.center</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>如果有两个或两个以上的块级元素要在一行水平居中，可以改变他们的display属性(inline-block或者flexbox)<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo3 设置要居中的块级元素display:inline-block--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span> <span class="attr">class</span>=<span class="string">"inline-block-center"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>I'm an element that is block-like with my siblings and we're centered in a row.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>I'm an element that is block-like with my siblings and we're centered in a row. I have more content in me than my siblings do.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>I'm an element that is block-like with my siblings and we're centered in a row.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">15px</span>;</div><div class="line">  <span class="attribute">max-width</span>: <span class="number">125px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inline-block-center</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.inline-block-center</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">text-align</span>: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo4 在要居中的块级元素的父元素上设置display:flex--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span> <span class="attr">class</span>=<span class="string">"flex-center"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>I'm an element that is block-like with my siblings and we're centered in a row.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>I'm an element that is block-like with my siblings and we're centered in a row. I have more content in me than my siblings do.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>I'm an element that is block-like with my siblings and we're centered in a row.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.flex-center</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>如果有多个块级元素，每个块级元素独占一行居中，则在每个块级元素上设置margin:0 auto；同样有效。</li>
+</ol>
+<h3 id="u4E8C_u3001_u5782_u76F4_u5C45_u4E2D_uFF08_u5728CSS_u4E2D_u6709_u70B9_u9EBB_u70E6_uFF09"><a href="#u4E8C_u3001_u5782_u76F4_u5C45_u4E2D_uFF08_u5728CSS_u4E2D_u6709_u70B9_u9EBB_u70E6_uFF09" class="headerlink" title="二、垂直居中（在CSS中有点麻烦）"></a>二、垂直居中（在CSS中有点麻烦）</h3><ol>
+<li>元素如果是inline或者inline-*,比如text或links</li>
+</ol>
+<ul>
+<li>如果元素是单行<br><strong>可以使元素上下内边距相等实现元素垂直居中</strong></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.link</span> &#123;</div><div class="line">  <span class="attribute">padding-top</span>: <span class="number">30px</span>;</div><div class="line">  <span class="attribute">padding-bottom</span>: <span class="number">30px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo5 一行元素(行内)垂直居中--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>We're<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>Centered<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>Bits of<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#0"</span>&gt;</span>Text<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">50px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">a</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">40px</span> <span class="number">30px</span>;</div><div class="line">  <span class="attribute">text-decoration</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>如果padding不起作用，对于不会换行的text,可以通过设置line-height等于height来使文本居中</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-text-trick</span> &#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>适用于需要居中的元素设置了高度值</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo6 通过line-height使元素垂直居中--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    I'm a centered line.</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">40px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">white-space</span>: nowrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>如果元素是多行<br>上下内边距相等可以让多行text垂直居中，但如果不起作用的话，如果元素是table的子元素或者设置display属性为table，子元素display:table-cell,可以使用vertical-align，table中td默认的verticle-align:middle</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo7 table中元素垂直居中--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></div><div class="line">      I'm vertically centered multiple lines of text in a real table cell.</div><div class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"center-table"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm vertically centered multiple lines of text in a CSS-created table layout.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">table</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">width</span>: <span class="number">240px</span>;</div><div class="line">  <span class="attribute">border-collapse</span>: separate;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">250px</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">table</span> <span class="selector-tag">td</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid white;</div><div class="line">  <span class="comment">/* default is vertical-align: middle; */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.center-table</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table;</div><div class="line">  <span class="attribute">height</span>: <span class="number">250px</span>;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">width</span>: <span class="number">240px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.center-table</span> <span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">display</span>: table-cell;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid white;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>如果上述方法不起作用，可以用flexbox</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.flex-center-vertically</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>注意：父元素必须设置高度值（px,%等）</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo8 父元素设置display:flex实现垂直居中--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"flex-center"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm vertically centered multiple lines of text in a flexbox container.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">width</span>: <span class="number">240px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex-center</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid white;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">resize</span>: vertical;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.flex-center</span> <span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>如果上述两种都不起作用，你可以使用”ghost element”技术，在容器中放置一个full-height的伪元素，文本在其中垂直居中</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.ghost-center</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ghost-center</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">1%</span>;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ghost-center</span> <span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo9--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ghost-center"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm vertically centered multiple lines of text in a container. Centered with a ghost pseudo element<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">width</span>: <span class="number">240px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">resize</span>: vertical;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ghost-center</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ghost-center</span><span class="selector-pseudo">::before</span> &#123;</div><div class="line">  <span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">1%</span>;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ghost-center</span> <span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">vertical-align</span>: middle;</div><div class="line">  <span class="attribute">width</span>: <span class="number">190px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.如果是块级元素垂直居中</p>
+<ul>
+<li>你知道元素的高度吗？<br>引起高度变化：比如宽度变化了，会引起高度变化；文本样式变化了也会改变高度；文本数量变化也会改变高度；对于具有固定长宽比的元素，比如image，宽度变化会引起高度变化。<br><strong>如果知道高度值的话，可以像如下设置实现垂直居中</strong><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">margin-top</span>: -<span class="number">50px</span>; <span class="comment">/* 如果有padding和border值要计算(height+padding-top+padding-bottom+border-top-height+border-bottom-height)/2 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo10 知道块级元素的高度值--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">     I'm a block-level element with a fixed height, centered vertically within my parent.</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">resize</span>: vertical;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">margin-top</span>: -<span class="number">70px</span>;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>不知道元素的高度</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo11 不知道块级元素高度时--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">     I'm a block-level element with an unknown height, centered vertically within my parent.</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">resize</span>: vertical;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">transform</span>:<span class="built_in">translateY</span>(-50%);</div><div class="line">  <span class="attribute">resize</span>:vertical;</div><div class="line">  <span class="attribute">overflow</span>:auto;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>最简单的就是使用flexbox</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo12 使用flex实现垂直居中--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">     I'm a block-level element with an unknown height, centered vertically within my parent.</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">flex-direction</span>: column;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">resize</span>: vertical;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">resize</span>: vertical;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="u4E09_u3001_u6C34_u5E73_u548C_u5782_u76F4_u90FD_u5C45_u4E2D"><a href="#u4E09_u3001_u6C34_u5E73_u548C_u5782_u76F4_u90FD_u5C45_u4E2D" class="headerlink" title="三、水平和垂直都居中"></a>三、水平和垂直都居中</h3><ol>
+<li>元素有固定的宽高<br>绝对定位后设置50%的top和left，使用负的外边距等于宽度和高度的一半进行居中<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">margin</span>: -<span class="number">70px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">170px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo13 元素width和height已知，保持水平垂直居中--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">     I'm a block-level element a fixed height and width, centered vertically within my parent.</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">60%</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">resize</span>: both;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">margin</span>: -<span class="number">70px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">120px</span>;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>元素的宽高未知<br>如果不知道元素的宽和高，可以使用transform属性实现水平垂直居中。<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.child</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo14 宽高未知--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">     I'm a block-level element of an unknown height and width, centered vertically within my parent.</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">position</span>: relative;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">60%</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">resize</span>: both;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">resize</span>: both;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line">```   </div><div class="line">3. 使用<span class="selector-tag">flexbox</span>设置水平垂直居中，你需要设置两个居中属性</div><div class="line">```<span class="selector-tag">css</span></div><div class="line"><span class="selector-class">.parent</span> &#123;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--Demo15 flex实现水平垂直居中--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">main</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">     I'm a block-level element of an unknown height and width, centered vertically within my parent.</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">main</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">background</span>: <span class="number">#f06d06</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">80%</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">background</span>: white;</div><div class="line">  <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">60%</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">  <span class="attribute">resize</span>: both;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">background</span>: black;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">width</span>: <span class="number">50%</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">  <span class="attribute">resize</span>: both;</div><div class="line">  <span class="attribute">overflow</span>: auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p>根据不同的场景选择最佳方式实现效果！GOOD LUCK!</p>
+
+                                                                                
+                                        </div>
+                                        
+                                            <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+	</div>
+
+
+                                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front/">-front</a>
+	</div>
+
 
                                                         
                                                                 <div class="clearfix"></div>
@@ -447,8 +639,16 @@
                                         
                                             <div class="article-info article-info-index">
                                                 
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/闭包-JS/">闭包,JS</a></li></ul>
+	</div>
+
 
                                                     
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front/">-front</a>
+	</div>
+
 
                                                         
                                                                 <div class="clearfix"></div>
@@ -469,7 +669,7 @@
 -->
 
   
-    <article id="post-CSS" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Ajax详解" class="article article-type-post" itemscope itemprop="blogPost">
     <script>
         $("html").niceScroll({
             cursorcolor: "#2a2929",
@@ -483,107 +683,7 @@
     </script>
     
         <div class="article-meta">
-            <a href="/2016/02/26/CSS/" class="article-date">
-  	<time datetime="2016-02-26T14:01:54.000Z" itemprop="datePublished">2016-02-26</time>
-</a>
-
-        </div>
-        
-            <div class="article-inner">
-                
-                    <input type="hidden" class="isFancy" />
-                    
-                        
-                            <header class="article-header">
-                                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/CSS/">CSS</a>
-    </h1>
-  
-
-
-                            </header>
-                            
-                                    
-                                        <div class="article-entry" itemprop="articleBody">
-                                            
-                                                    <!--02-->
-                                                    <p class="toc-button">目录</p>
-<div id="toc" class="toc-article" style="display:none;">
-    
-</div>
-<script>
-    $(function(){
-
-        var width = document.body.scrollWidth;
-        if (width <=550) {
-             $(".toc-button").css("display","none");
-        }
-        $(".toc-button").hover(function(){
-            var top = $(this).get(0).offsetTop-$(".toc-article").height()/2;
-            $(".toc-article").css({
-                top:top +"px"
-            });
-            $("#toc").show(1000,function(){});
-           // $("#toc").animate({width:500;},3000);
-        },function(){
-
-        });
-        $(".toc-article").hover(function(){
-
-        },function(){
-            $("#toc").hide(1000,function(){});
-        });
-    })
-</script>
-
-                                                        
-                                                            
-                                                                
-                                                                            
-                                                                                
-                                        </div>
-                                        
-                                            <div class="article-info article-info-index">
-                                                
-
-                                                    
-
-                                                        
-                                                                <div class="clearfix"></div>
-                                            </div>
-                                            
-            </div>
-            
-                    
-                                <!-- 多说评论框 start -->
-                                
-</article>
-
-<!--
-
--->
-<!--
-
--->
-
-  
-    <article id="pape-mytime" class="article article-type-pape" itemscope itemprop="blogPost">
-    <script>
-        $("html").niceScroll({
-            cursorcolor: "#2a2929",
-            cursoropacitymax: 1,
-            touchbehavior: false,
-            cursorwidth: "6px",
-            cursorborder: "5",
-            cursorborderradius: "0px",
-            autohidemode: true
-        });
-    </script>
-    
-        <div class="article-meta">
-            <a href="/2016/02/26/mytime/" class="article-date">
+            <a href="/2016/02/26/Ajax详解/" class="article-date">
   	<time datetime="2016-02-26T08:00:24.000Z" itemprop="datePublished">2016-02-26</time>
 </a>
 
@@ -598,7 +698,7 @@
                                 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/26/mytime/">mytime</a>
+      <a class="article-title" href="/2016/02/26/Ajax详解/">Ajax详解</a>
     </h1>
   
 
@@ -611,7 +711,7 @@
                                                     <!--02-->
                                                     <p class="toc-button">目录</p>
 <div id="toc" class="toc-article" style="display:none;">
-    
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#u4F7F_u7528XMLHttpRequest_u5BF9_u8C61"><span class="toc-number">1.</span> <span class="toc-text">使用XMLHttpRequest对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#XHR_u7684_u7528_u6CD5"><span class="toc-number">1.0.1.</span> <span class="toc-text">XHR的用法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#HTTP_u5934_u90E8_u4FE1_u606F"><span class="toc-number">1.0.2.</span> <span class="toc-text">HTTP头部信息</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#GET_u8BF7_u6C42"><span class="toc-number">1.0.3.</span> <span class="toc-text">GET请求</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#POST_u8BF7_u6C42"><span class="toc-number">1.0.4.</span> <span class="toc-text">POST请求</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XMLHttpRequest2_u7EA7"><span class="toc-number">2.</span> <span class="toc-text">XMLHttpRequest2级</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#FormData"><span class="toc-number">2.0.1.</span> <span class="toc-text">FormData</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u8D85_u65F6_u8BBE_u5B9A"><span class="toc-number">2.0.2.</span> <span class="toc-text">超时设定</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#overrideMimeType_28_29_u65B9_u6CD5"><span class="toc-number">2.0.3.</span> <span class="toc-text">overrideMimeType()方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u8FDB_u5EA6_u4E8B_u4EF6"><span class="toc-number">2.0.4.</span> <span class="toc-text">进度事件</span></a></li></ol></li></ol></li></ol>
 </div>
 <script>
     $(function(){
@@ -641,108 +741,31 @@
                                                         
                                                             
                                                                 
-                                                                            
-                                                                                
-                                        </div>
-                                        
-                                            <div class="article-info article-info-index">
-                                                
-
-                                                    
-
-                                                        
-                                                                <div class="clearfix"></div>
-                                            </div>
-                                            
-            </div>
-            
-                    
-                                <!-- 多说评论框 start -->
-                                
-</article>
-
-<!--
-
--->
-<!--
-
--->
-
-  
-    <article id="post-my-blog" class="article article-type-post" itemscope itemprop="blogPost">
-    <script>
-        $("html").niceScroll({
-            cursorcolor: "#2a2929",
-            cursoropacitymax: 1,
-            touchbehavior: false,
-            cursorwidth: "6px",
-            cursorborder: "5",
-            cursorborderradius: "0px",
-            autohidemode: true
-        });
-    </script>
-    
-        <div class="article-meta">
-            <a href="/2016/01/23/my-blog/" class="article-date">
-  	<time datetime="2016-01-23T12:32:08.000Z" itemprop="datePublished">2016-01-23</time>
-</a>
-
-        </div>
-        
-            <div class="article-inner">
-                
-                    <input type="hidden" class="isFancy" />
-                    
-                        
-                            <header class="article-header">
-                                
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/23/my-blog/">JavaScript DOM 脚本</a>
-    </h1>
-  
-
-
-                            </header>
-                            
-                                    
-                                        <div class="article-entry" itemprop="articleBody">
-                                            
-                                                    <!--02-->
-                                                    <p class="toc-button">目录</p>
-<div id="toc" class="toc-article" style="display:none;">
-    
-</div>
-<script>
-    $(function(){
-
-        var width = document.body.scrollWidth;
-        if (width <=550) {
-             $(".toc-button").css("display","none");
-        }
-        $(".toc-button").hover(function(){
-            var top = $(this).get(0).offsetTop-$(".toc-article").height()/2;
-            $(".toc-article").css({
-                top:top +"px"
-            });
-            $("#toc").show(1000,function(){});
-           // $("#toc").animate({width:500;},3000);
-        },function(){
-
-        });
-        $(".toc-article").hover(function(){
-
-        },function(){
-            $("#toc").hide(1000,function(){});
-        });
-    })
-</script>
-
-                                                        
-                                                            
-                                                                
-                                                                            <p>function addLoadEvent(func) {<br>     var oldonload=window.onload;<br>     if(typeof window.onload!=’function’) {<br>          window.onload=func;<br>     }else {<br>          oldonload();<br>          func();<br>     }<br>}</p>
-<p>function insertAfter(newElement,targetElement) {<br>     var parent=targetElement.parentNode;<br>     if(parent.lastChild==targetElement) {<br>          parent.appendChild(newElement);<br>     }else {<br>          parent.insertBefore(newElement,targetElement.nextSibling);<br>     }<br>}</p>
+                                                                            <p>Ajax技术的核心是XMLHttpRequest，这种技术就是（异步）无需刷新页面即可从服务器取得数据，但不一定是XML数据。</p>
+<h4 id="u4F7F_u7528XMLHttpRequest_u5BF9_u8C61"><a href="#u4F7F_u7528XMLHttpRequest_u5BF9_u8C61" class="headerlink" title="使用XMLHttpRequest对象"></a>使用XMLHttpRequest对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//IE7及更高版本</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> XMLHttpRequest!=<span class="string">"undefined"</span>)&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> ActiveXObject!=<span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="comment">//适用于IE7之前版本</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString!=<span class="string">"string"</span>)&#123;</div><div class="line">     <span class="keyword">var</span> versions=[<span class="string">"MSXML2.XMLHttp.6.0"</span>,<span class="string">"MSXML2.XMLHttp.3.0"</span>,<span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line">     <span class="keyword">var</span> i,len;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>,len=versions.length;i&lt;len;i++)&#123;</div><div class="line">      <span class="keyword">try</span>&#123;</div><div class="line">          <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">          <span class="built_in">arguments</span>.callee.activeXString=versions[i];</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">       &#125;<span class="keyword">catch</span> (ex)&#123;</div><div class="line">                    <span class="comment">//跳过</span></div><div class="line">       &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"no XHR object available"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>创建XHR对象<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr=createXHR();</div></pre></td></tr></table></figure></p>
+<h6 id="XHR_u7684_u7528_u6CD5"><a href="#XHR_u7684_u7528_u6CD5" class="headerlink" title="XHR的用法"></a>XHR的用法</h6><p>xhr.open(“type”,”url”,boolean);<br>type: get,post等<br>url: url是相对于执行代码的当前页面（也可以使用绝对路径）<br>boolean:是否异步发送请求</p>
+<blockquote>
+<p>调用open()方法并不会真正发送请求，只是启动一个请求以备发送。只能向同一个域中使用相同端口和协议的URL发送请求，否则会引发安全错误。</p>
+</blockquote>
+<p>xhr.open(“get”,”example.html”,true);<br>xhr.send(null);</p>
+<hr>
+<p>在收到响应后，响应的数据会自动填充XHR对象的属性，介绍如下：</p>
+<ol>
+<li>responseText:作为响应主体被返回的文本。</li>
+<li>responseXML:如果响应的内容类型是”text/xml”或”application/xml”，这个属性将保存包含着响应数据的XML DOM文档</li>
+<li>status:响应的HTTP状态（200作为成功的标志，304表示请求的资源并没有被修改，可以直接使用浏览器中缓存的版本）</li>
+<li>statusText: HTTP状态的说明<br>XHR对象的readyState属性表示请求/响应过程的当前活动阶段：<br>0：未初始化，尚未调用open()方法<br>1：启动，已调用open()方法，但尚未调用send()方法<br>2：发送，已调用send()方法，但尚未收到响应<br>3：接收，已经接收到部分响应数据<br>4：完成，已经接收到全部响应数据，而且已经可以在客户端使用了<br>当readyState属性的值变化时会触发readystatechange事件，必须在调用open()方法之前指定onreadystatechange事件处理程序才能确保浏览器兼容性。<br>在接收到响应之前调用<strong>xhr.abort()</strong>方法可以取消异步请求。<h6 id="HTTP_u5934_u90E8_u4FE1_u606F"><a href="#HTTP_u5934_u90E8_u4FE1_u606F" class="headerlink" title="HTTP头部信息"></a>HTTP头部信息</h6>请求头部、响应头部、公共头部<br>XHR对象的setRequestHeader()方法设置自定义的请求头部信息，接收两个参数：头部字段的名称和头部字段的值。要成功发送请求头部信息，必须在调用open()方法之后且调用send()方法之前调用setRequestHeader()<br>XHR对象的getResponseHeader()方法可以取得相应的响应头部信息，getAllResponseHeaders()方法可以取得一个包含所有头部信息的长字符串。<h6 id="GET_u8BF7_u6C42"><a href="#GET_u8BF7_u6C42" class="headerlink" title="GET请求"></a>GET请求</h6>GET用于向服务器查询某些信息，必要时可以将<strong>查询字符串</strong>参数追加到URL的末尾，以便将信息发送给服务器。<br>使用GET请求经常发生的错误是查询字符串的格式，查询字符串中的每个参数的名称和值都必须使用<strong>encodeURIComponent()</strong>进行编码，然后才能放到URL的末尾；而且所有的名-值对都必须由&amp;分隔。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addURLParam</span>(<span class="params">url,name,value</span>)</span>&#123;</div><div class="line">    url+=(url.indexOf(<span class="string">"?"</span>)==<span class="number">-1</span>?<span class="string">"?"</span>:<span class="string">"&amp;"</span>);</div><div class="line">    url+=<span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>+<span class="built_in">encodeURIComponent</span>(value);</div><div class="line">    <span class="keyword">return</span> url;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h6 id="POST_u8BF7_u6C42"><a href="#POST_u8BF7_u6C42" class="headerlink" title="POST请求"></a>POST请求</h6><p>POST请求用于向服务器发送应该被保存的数据，POST请求应该把数据作为请求的主体提交，而GET请求传统上不这样，POST请求的主体可以包含非常多的数据，而且格式不限。与GET请求相比，POST请求消耗的资源会更多一些，从性能角度来看，以发送相同的数据计，GET请求的速度最多可达到POST请求的两倍。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">submitData</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> xhr=createXHR();</div><div class="line">    xhr.onreadystatechange()=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(xhr.status&gt;=<span class="number">200</span>&amp;&amp;xhr.status&lt;<span class="number">300</span>||xhr.status==<span class="number">304</span>)&#123;</div><div class="line">                alert(xhr.responseText);</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                alert(<span class="string">"Request was unsuccessful:"</span>+xhr.status);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    xhr.open(<span class="string">"post"</span>,<span class="string">"example.php"</span>,<span class="literal">true</span>);</div><div class="line">    xhr.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line">    xhr.send(serialize(form));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="XMLHttpRequest2_u7EA7"><a href="#XMLHttpRequest2_u7EA7" class="headerlink" title="XMLHttpRequest2级"></a>XMLHttpRequest2级</h4><h6 id="FormData"><a href="#FormData" class="headerlink" title="FormData"></a>FormData</h6><p>FormData为序列化表单以及创建与表单格式相同的数据（用于通过XHR传输）提供了便利。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> data=<span class="keyword">new</span> FormData();</div><div class="line">data.append(<span class="string">"name"</span>,<span class="string">"ffj"</span>);</div></pre></td></tr></table></figure></p>
+<p>append()方法接收两个参数：键和值，分别对应表单字段的名字和字段中包含的值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">submitData</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> xhr=createXHR();</div><div class="line">    xhr.onreadystatechange()=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</div><div class="line">            <span class="keyword">if</span>(xhr.status&gt;=<span class="number">200</span>&amp;&amp;xhr.status&lt;<span class="number">300</span>||xhr.status==<span class="number">304</span>)&#123;</div><div class="line">                alert(xhr.responseText);</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                alert(<span class="string">"Request was unsuccessful:"</span>+xhr.status);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    xhr.open(<span class="string">"post"</span>,<span class="string">"example.php"</span>,<span class="literal">true</span>);</div><div class="line">    <span class="keyword">var</span> form=<span class="built_in">document</span>.getElementById(<span class="string">"user-info"</span>);</div><div class="line">    xhr.send(<span class="keyword">new</span> FormData(form));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>使用FormData不必明确在XHR对象上设置请求头部。XHR对象能够识别传入的数据类型是FormData的实例，并配置合适的头部信息。</p>
+<h6 id="u8D85_u65F6_u8BBE_u5B9A"><a href="#u8D85_u65F6_u8BBE_u5B9A" class="headerlink" title="超时设定"></a>超时设定</h6><p>XHR对象的timeout属性表示请求在等待响应多少毫秒之后就终止。在给timeout设置一个数值后，如果在规定的时间内浏览器还没有收到响应，就会触发timeout事件，进而调用ontimeout事件处理程序。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">submitData</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> xhr=createXHR();</div><div class="line">    xhr.onreadystatechange()=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(xhr.readyState==<span class="number">4</span>)&#123;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                <span class="keyword">if</span>(xhr.status&gt;=<span class="number">200</span>&amp;&amp;xhr.status&lt;<span class="number">300</span>||xhr.status==<span class="number">304</span>)&#123;</div><div class="line">                alert(xhr.responseText);</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                alert(<span class="string">"Request was unsuccessful:"</span>+xhr.status);</div><div class="line">                &#125;</div><div class="line">            &#125;<span class="keyword">catch</span>(ex)&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">    xhr.open(<span class="string">"get"</span>,<span class="string">"example.php"</span>,<span class="literal">true</span>);</div><div class="line">    xhr.timeout=<span class="number">1000</span>;</div><div class="line">    xhr.ontimeout=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        alert(<span class="string">"Request did not return in a second"</span>)</div><div class="line">    &#125;;</div><div class="line">    xhr.send(<span class="literal">null</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h6 id="overrideMimeType_28_29_u65B9_u6CD5"><a href="#overrideMimeType_28_29_u65B9_u6CD5" class="headerlink" title="overrideMimeType()方法"></a>overrideMimeType()方法</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr=createXHR();</div><div class="line">xhr.open(<span class="string">"get"</span>,<span class="string">"text.php"</span>,<span class="literal">true</span>);</div><div class="line">xhr.overrideMimeType(<span class="string">"text/xml"</span>);</div><div class="line">xhr.send(<span class="literal">null</span>);</div></pre></td></tr></table></figure>
+<p>调用overrideMimeType()必须在send()方法之前，才能保证重写响应的MIME类型。返回响应的MIME类型决定了XHR对象如何处理它。</p>
+<h6 id="u8FDB_u5EA6_u4E8B_u4EF6"><a href="#u8FDB_u5EA6_u4E8B_u4EF6" class="headerlink" title="进度事件"></a>进度事件</h6><p>6个进度事件：<br>1.loadstart:在接收到响应数据的第一个字节时触发<br>2.progress:在接收响应期间持续不断触发<br>3.error:在请求发生错误时触发<br>4.abort:在因为调用abort()方法而终止连接时触发<br>5.load:在接收到完整的响应数据时触发<br>6.loadend：在通信完成或触发error、abort或load事件后触发<br>load事件：只要浏览器接收到服务器的响应，不管其状态如何都会触发load事件。故必须坚持status属性才能确定数据是否真的可用。<br>progress事件：该事件会在浏览器接收新数据期间周期性地触发。onprogress事件处理程序会接收到一个event对象，其target属性是XHR对象，额外的三个属性：lengthComputable表示进度信息是否可以的布尔值，position表示已经接收的字节数，totalSize表示根据Content-Length响应头部确定的预期字节数。</p>
 
                                                                                 
                                         </div>
@@ -750,11 +773,15 @@
                                             <div class="article-info article-info-index">
                                                 
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/我的第一篇博客/">我的第一篇博客</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript高级程序设计/">JavaScript高级程序设计</a></li></ul>
 	</div>
 
 
                                                     
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front-JavaScript/">-front -JavaScript</a>
+	</div>
+
 
                                                         
                                                                 <div class="clearfix"></div>
@@ -898,6 +925,128 @@
 -->
 
   
+    <article id="post-跨域" class="article article-type-post" itemscope itemprop="blogPost">
+    <script>
+        $("html").niceScroll({
+            cursorcolor: "#2a2929",
+            cursoropacitymax: 1,
+            touchbehavior: false,
+            cursorwidth: "6px",
+            cursorborder: "5",
+            cursorborderradius: "0px",
+            autohidemode: true
+        });
+    </script>
+    
+        <div class="article-meta">
+            <a href="/2016/01/23/跨域/" class="article-date">
+  	<time datetime="2016-01-23T12:32:08.000Z" itemprop="datePublished">2016-01-23</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/23/跨域/">跨域方法总结</a>
+    </h1>
+  
+
+
+                            </header>
+                            
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                                    <!--02-->
+                                                    <p class="toc-button">目录</p>
+<div id="toc" class="toc-article" style="display:none;">
+    <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#CORS"><span class="toc-number">1.</span> <span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u56FE_u50CFPing"><span class="toc-number">2.</span> <span class="toc-text">图像Ping</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#JSONP"><span class="toc-number">3.</span> <span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Comet"><span class="toc-number">4.</span> <span class="toc-text">Comet</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u670D_u52A1_u5668_u53D1_u9001_u4E8B_u4EF6SSE"><span class="toc-number">5.</span> <span class="toc-text">服务器发送事件SSE</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Web_Sockets"><span class="toc-number">6.</span> <span class="toc-text">Web Sockets</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5B89_u5168"><span class="toc-number"></span> <span class="toc-text">安全</span></a>
+</div>
+<script>
+    $(function(){
+
+        var width = document.body.scrollWidth;
+        if (width <=550) {
+             $(".toc-button").css("display","none");
+        }
+        $(".toc-button").hover(function(){
+            var top = $(this).get(0).offsetTop-$(".toc-article").height()/2;
+            $(".toc-article").css({
+                top:top +"px"
+            });
+            $("#toc").show(1000,function(){});
+           // $("#toc").animate({width:500;},3000);
+        },function(){
+
+        });
+        $(".toc-article").hover(function(){
+
+        },function(){
+            $("#toc").hide(1000,function(){});
+        });
+    })
+</script>
+
+                                                        
+                                                            
+                                                                
+                                                                            <p>通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以防止某些恶意行为。</p>
+<h6 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h6><p>CORS跨源资源共享，基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。即CORS是为了让AJAX可以实现可控的跨域访问而产生。<br>在发送请求时需要附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口号），以便服务器根据这个头部信息来决定是否给予响应。示例如：<br>Origin: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a><br>如果服务器认为这个请求可以接受，就在<strong>Access-Control-Allow-Origin</strong>头部中回发相同的源信息（如果是公共资源，可以回发”*”），例如：<br>Access-Control-Allow-Origin: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
+<p>如果没有这个头部，或者有这个头部但源信息不匹配，浏览器就会驳回请求，正常情况下，浏览器会处理请求．注意：请求和响应都不包含cookie信息。</p>
+<h6 id="u56FE_u50CFPing"><a href="#u56FE_u50CFPing" class="headerlink" title="图像Ping"></a>图像Ping</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image();</div><div class="line">img.onload=img.onerror= <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="string">"Done!"</span>);</div><div class="line">&#125;;</div><div class="line">img.src=<span class="string">"http://www.example.com/test?name=ffj"</span>;</div></pre></td></tr></table></figure>
+<p>图像Ping最常用于跟踪用户点击页面或动态广告曝光次数。<br>缺点：一是只能发送GET请求，二是无法访问服务器的响应文本。<br>因此，图像Ping只能用于浏览器与服务器间的单向通信。</p>
+<h6 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h6><p>JSONP(JSON with padding)填充式JSON，是被包含在函数调用中的JSON.<br>JSONP由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数。回调函数的名字一般是在请求中指定的。而数据就是传入回调函数中的JSON数据。<br>JSONP是通过动态&lt;script&gt;元素来使用，使用时可以为src属性指定一个跨域URL。这里的&lt;script&gt;元素与&lt;img&gt;元素类似，都有能力不受限制地从其他域加载资源。<br>JSONP是有效的Javascript代码，在请求完成后,JSONP响应加载到页面中以后就可以立即执行。<br>优点：JSONP能够直接访问响应文本，支持在浏览器与服务器之间双向通信。<br>缺点：JSONP是从其他域中加载代码执行，如果其他域不安全，很可能会在响应中夹带恶意代码，因此在使用不是你自己运维的web服务时，一定得保证它安全可靠。其次，要确定JSONP请求是否失败并不容易，开发人员使用计时器检测指定时间内是否收到了响应，但不如人意。</p>
+<h6 id="Comet"><a href="#Comet" class="headerlink" title="Comet"></a>Comet</h6><p>Ajax是一种从页面向服务器请求数据的技术，而Comet是一种服务器向页面推送数据的技术。<br>Comet能够让信息近乎实时地被推送到页面上，非常适合处理体育比赛的分数和股票报价。<br>实现Comet的两种方式：长轮询和流<br>长轮询：页面发起一个到服务器的请求，然后服务器一直保持连接打开，直到有数据可发送。发送完数据之后，浏览器关闭连接，随即又发起一个到服务器的新请求。这一过程在页面打开期间一直持续不断。<br>HTTP流：流在整个生命周期内只使用一个HTTP连接，就是浏览器向服务器发送一个请求，而服务器保持连接打开，然后周期性地向浏览器发送数据。</p>
+<h6 id="u670D_u52A1_u5668_u53D1_u9001_u4E8B_u4EF6SSE"><a href="#u670D_u52A1_u5668_u53D1_u9001_u4E8B_u4EF6SSE" class="headerlink" title="服务器发送事件SSE"></a>服务器发送事件SSE</h6><p>SSE是围绕制度Comet交互推出的API，用于创建到服务器的单向连接，服务器可以发送任意数量的数据，服务器响应的MIME类型必须是text/event-stream，而且是浏览器中的javascript API能解析格式输出。SSE支持短轮询、长轮询和HTTP流，而且能在断开连接时自动确定何时重新连接。</p>
+<h6 id="Web_Sockets"><a href="#Web_Sockets" class="headerlink" title="Web Sockets"></a>Web Sockets</h6><p>Web Sockets的目标是在一个单独的持久连接上提供全双工、双向通信。使用自定义的协议，能够在客户端和服务器之间发送非常少量的数据，而不必担心HTTP那样字节级的开销。适合移动应用。</p>
+<h4 id="u5B89_u5168"><a href="#u5B89_u5168" class="headerlink" title="安全"></a>安全</h4><p>为确保通过XHR访问的URL安全，通行的做法就是验证发送请求者是否有权限访问相应的资源。</p>
+<ol>
+<li>要求以SSL连接来访问可以通过XHR请求的资源</li>
+<li>要求每一次请求都要附带经过相应算法计算得到的验证码</li>
+</ol>
+
+                                                                                
+                                        </div>
+                                        
+                                            <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域-JS/">跨域,JS</a></li></ul>
+	</div>
+
+
+                                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front/">-front</a>
+	</div>
+
+
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+                                            
+            </div>
+            
+                    
+                                <!-- 多说评论框 start -->
+                                
+</article>
+
+<!--
+
+-->
+<!--
+
+-->
+
+  
     <article id="post-JS简介" class="article article-type-post" itemscope itemprop="blogPost">
     <script>
         $("html").niceScroll({
@@ -973,7 +1122,7 @@
                                                                             <h3 id="u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><a href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A" class="headerlink" title="一个完整的JavaScript实现包括："></a>一个完整的JavaScript实现包括：</h3><ul>
 <li>核心（ECMAScript）</li>
 <li>文档对象模型（DOM）</li>
-<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<li>浏览器对象模型（BOM）<br>所有的&lt;script&gt;标签都会按照它们在页面中出现的先后顺序依次被解析，故一般应该把&lt;script&gt;标签放在页面最后，即主要内容后面&lt;/body&gt;标签前面。<br>使用defer属性可以让脚本在文档完全呈现之后再执行，延迟脚本总是按照指定它们的顺序执行。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> defer=<span class="string">"defer"</span> src=<span class="string">"example.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>使用async属性可以表示当前脚本不必等待其他脚本，也不必阻塞文档呈现。不能保证异步脚本按顺序执行。<br>&lt;noscript&gt;元素可以指定在不支持脚本的浏览器中显示的替代内容。<br>如果启用了脚本，浏览器不会显示&lt;noscript&gt;元素中任何内容。</p>
@@ -996,6 +1145,10 @@
 
 
                                                     
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front/">-front</a>
+	</div>
+
 
                                                         
                                                                 <div class="clearfix"></div>
@@ -1109,6 +1262,10 @@
 
 
                                                     
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/work/">-work</a>
+	</div>
+
 
                                                         
                                                                 <div class="clearfix"></div>

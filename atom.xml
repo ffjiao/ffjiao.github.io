@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2016-08-02T14:16:19.558Z</updated>
+  <updated>2016-08-05T14:21:40.571Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://yoursite.com/2016/06/24/hello-world/"/>
     <id>https://yoursite.com/2016/06/24/hello-world/</id>
     <published>2016-06-24T01:21:55.144Z</published>
-    <updated>2016-08-02T14:16:19.558Z</updated>
+    <updated>2016-08-05T14:21:40.571Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
@@ -39,10 +39,53 @@
     
     </summary>
     
-      <category term="-work" scheme="https://yoursite.com/categories/work/"/>
+      <category term="work" scheme="https://yoursite.com/categories/work/"/>
     
     
       <category term="Hexo" scheme="https://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>离线应用与客户端存储</title>
+    <link href="https://yoursite.com/2016/06/20/cookie/"/>
+    <id>https://yoursite.com/2016/06/20/cookie/</id>
+    <published>2016-06-20T01:50:16.000Z</published>
+    <updated>2016-08-05T14:25:34.850Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="u79BB_u7EBF_u68C0_u6D4B"><a href="#u79BB_u7EBF_u68C0_u6D4B" class="headerlink" title="离线检测"></a>离线检测</h3><p>navigator.onLine属性，值为true表示设备能上网，值为false表示设备离线。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(navigator.onLine)&#123;</div><div class="line">     <span class="comment">//正常工作</span></div><div class="line"> &#125;<span class="keyword">else</span>&#123;</div><div class="line">     <span class="comment">//执行离线状态时的任务</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>两个事件：online和offline，当网络从离线变为在线或从在线变为离线时，分别触发这两个事件。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">EventUtil.addHandler(<span class="built_in">window</span>,<span class="string">"online"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"Online"</span>);</div><div class="line">&#125;);</div><div class="line">EventUtil.addHandler(<span class="built_in">window</span>,<span class="string">"offline"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"Offline"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="u6570_u636E_u5B58_u50A8"><a href="#u6570_u636E_u5B58_u50A8" class="headerlink" title="数据存储"></a>数据存储</h3><h5 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h5><p>在客户端用于存储会话信息。<br><strong>限制</strong>：<br>cookie在性质上绑定在特定的域名下的。<br>cookie存在客户端计算机上，还加入了一些限制确保cookie不会被恶意使用，同时不会占据太多磁盘空间。每个域的cookie总数是有限的。（IE6以及低版本20个，EI7及之后50个，FF50个，Opera30个，Safari和Chrome没规定）<br>浏览器对cookie的尺寸也有限制。最好将整个cookie的长度限制在4095B以内。尺寸限制影响的是一个域下的所有cookie，而并非每个cookie单独限制。<br><strong>Cookie的构成</strong></p>
+<ol>
+<li>名称：一个唯一确定cookie的名称。cookie名称不区分大小写，名称必须经过URL编码</li>
+<li>值：储存在cookie中的字符串值。值必须被URL编码</li>
+<li>域：cookie对于哪个域是有效的。所有向该域发送的请求中都会包含这个cookie信息。如果没有明确设定，这个域会被认作来自设置cookie的那个域，<strong>对于指定域的所有子域都有效</strong></li>
+<li>路径：对于指定域中的那个路径，应该向服务器发送cookie。比如指定cookie只有从路径 <a href="http://www.ffj.com/books" target="_blank" rel="external">http://www.ffj.com/books</a> 访问，那么<a href="http://www.ffj.com" target="_blank" rel="external">http://www.ffj.com</a> 的页面就不会发送cookie信息，即使是同一个域，路径不同也不能访问</li>
+<li>失效时间：表示cookie何时应该被删除的时间戳，即何时应该停止向服务器发送这个cookie。默认情况，浏览器会话结束时即将所有cookie删除；也可以自己设置删除时间，这样即使关闭浏览器cookie依然保存在用户的机器上，如果设置的是过去的时间，cookie会立即被删除。</li>
+<li>安全标志：指定后，cookie只有在使用SSL连接时才发送到服务器，例如cookie信息只能发送给<a href="https://www.wrox.com" target="_blank" rel="external">https://www.wrox.com</a> 而<a href="http://www.wrox.com" target="_blank" rel="external">http://www.wrox.com</a> 的请求则不能发送cookie</li>
+</ol>
+<p>每一段信息都作为Set-Cookie头的一部分，使用分号加空格分隔每一段，例如：<br>HTTP/1.1 200 OK<br>Content-Type: text/html<br><strong>Set-Cookie: name=value; domain=.wrox.com; path=/; expires=Mon,22-Jan-17 07:10:24 GMT; secure</strong><br>Other-header: other-header-value<br>注意：secure是cookie中唯一一个非名值对儿的部分，只包含一个secure单词<br>域，路径，失效时间和secure标志都是服务器给浏览器的指示，以指定何时应该发送cookie。这些参数并不会作为发送到服务器的cookie信息的一部分，只有名值对儿才会被发送。<br><strong>JavaScript中的cookie</strong><br>接口：BOM的document.cookie属性<br>document.cookie用来获取属性时，返回当前页面可用的所有cookie的字符串，一系列由分号隔开的名值对儿。所有名字和值都是经过URL编码的，必须用decodeURIComponent()来解码。<br>document.cookie用来设置新的cookie字符串时，这个cookie字符串会被解释并添加到现有的cookie集合中。设置document.cookie并不会覆盖cookie，除非设置的cookie的名称已经存在。<br>document.cookie=encodeURIComponent(“name”)+”=”+encodeURIComponent(“ffj”)+”; domain=.wrox.com; path=/“;</p>
+<h6 id="cookie_u64CD_u4F5C_uFF1A_u8BFB_u53D6_u3001_u5199_u5165_u548C_u5220_u9664"><a href="#cookie_u64CD_u4F5C_uFF1A_u8BFB_u53D6_u3001_u5199_u5165_u548C_u5220_u9664" class="headerlink" title="cookie操作：读取、写入和删除"></a>cookie操作：读取、写入和删除</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> CookieUtil=&#123;</div><div class="line">        get:<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> cookieName=<span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>,</div><div class="line">                cookieStart=<span class="built_in">document</span>.cookie.indexOf(cookieName),</div><div class="line">                cookieValue=<span class="literal">null</span>;</div><div class="line">            <span class="keyword">if</span>(cookieStart&gt;<span class="number">-1</span>)&#123;</div><div class="line">                <span class="keyword">var</span> cookieEnd=<span class="built_in">document</span>.cookie.indexOf(<span class="string">";"</span>,cookieStart);</div><div class="line">                <span class="keyword">if</span>(cookieEnd==<span class="number">-1</span>)&#123;</div><div class="line">                    cookieEnd=<span class="built_in">document</span>.cookie.length;</div><div class="line">                &#125;</div><div class="line">                cookieValue=<span class="built_in">decodeURIComponent</span>(<span class="built_in">document</span>.cookie.substring(cookieStart+cookieName.length,cookieEnd));</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> cookieValue;</div><div class="line">        &#125;,</div><div class="line">        set: <span class="function"><span class="keyword">function</span> (<span class="params">name,value,expires,domain,path,secure</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> cookieText=<span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>+<span class="built_in">encodeURIComponent</span>(value);</div><div class="line">            <span class="keyword">if</span>(expires <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;</div><div class="line">                cookieText+=<span class="string">"; expires="</span>+expires.toGMTString();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(domain)&#123;</div><div class="line">                cookieText+=<span class="string">"; domain="</span>+domain;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(path)&#123;</div><div class="line">                cookieText+=<span class="string">"; path="</span>+path;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(secure)&#123;</div><div class="line">                cookieText+=<span class="string">"; secure"</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">document</span>.cookie=cookieText;</div><div class="line">        &#125;,</div><div class="line">        unset: <span class="function"><span class="keyword">function</span> (<span class="params">name, value, domain, path, secure</span>)</span>&#123;</div><div class="line">            <span class="keyword">this</span>.set(name,<span class="string">""</span>,<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>),domain,path,secure);</div><div class="line">        &#125;</div><div class="line">    &#125;;</div></pre></td></tr></table></figure>
+<h6 id="u5B50cookie"><a href="#u5B50cookie" class="headerlink" title="子cookie"></a>子cookie</h6><p>为了绕开浏览器的单域名下的cookie数限制，引入子cookie，它是存放在单个cookie中的更小段的数据，也就是使用cookie值来存储多个名称值对儿。<br>name=name1=value1&amp;name2=value2&amp;name3=value3<br>子cookie以查询字符串的格式进行格式化，这些值可以使用单个cookie进行存储和访问，而非对每个名称-值对儿使用不同的cookie存储。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SubCookieUtil=&#123;</div><div class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params">name,subName</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> subCookies=<span class="keyword">this</span>.getAll(name);</div><div class="line">        <span class="keyword">if</span>(subCookies)&#123;</div><div class="line">            <span class="keyword">return</span> subCookies[subName];</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    getAll: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> cookieName=<span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>,</div><div class="line">                cookieStart=<span class="built_in">document</span>.cookie.indexOf(cookieName),</div><div class="line">                cookieValue=<span class="literal">null</span>,</div><div class="line">                subCookies,</div><div class="line">                parts,</div><div class="line">                result=&#123;&#125;,</div><div class="line">                cookieEnd;</div><div class="line">        <span class="keyword">if</span>(cookieStart&gt;<span class="number">-1</span>)&#123;</div><div class="line">            cookieEnd=<span class="built_in">document</span>.cookie.indexOf(<span class="string">";"</span>,cookieStart);</div><div class="line">            <span class="keyword">if</span>(cookieEnd==<span class="number">-1</span>)&#123;</div><div class="line">                cookieEnd=<span class="built_in">document</span>.cookie.length;</div><div class="line">            &#125;</div><div class="line">            cookieValue=<span class="built_in">document</span>.cookie.substring(cookieStart+cookieName.length,cookieEnd);</div><div class="line">            <span class="keyword">if</span>(cookieValue.length&gt;<span class="number">0</span>)&#123;</div><div class="line">                subCookies=cookieValue.splice(<span class="string">"&amp;"</span>);</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>,len=subCookies.length;i&lt;len;i++)&#123;</div><div class="line">                    parts=subCookies[i].splice(<span class="string">"="</span>);</div><div class="line">                    result[<span class="built_in">decodeURIComponent</span>(parts[<span class="number">0</span>])]=<span class="built_in">decodeURIComponent</span>(parts[<span class="number">1</span>]);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> result;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</div><div class="line">    &#125;,</div><div class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">name,subName,value,expires,path,domain,secure</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> subCookies=<span class="keyword">this</span>.getAll(name)||&#123;&#125;;</div><div class="line">        subCookies[subName]=value;</div><div class="line">        <span class="keyword">this</span>.setAll(name,subCookies,expires,path,domain,secure);</div><div class="line">    &#125;,</div><div class="line">    setAll: <span class="function"><span class="keyword">function</span> (<span class="params">name,subCookies,expires,path,domain,secure</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> cookieText=<span class="built_in">encodeURIComponent</span>(name)+<span class="string">"="</span>,</div><div class="line">                subCookieParts=[],</div><div class="line">                subName;</div><div class="line">        <span class="keyword">for</span>(subName <span class="keyword">in</span> subCookies)&#123;</div><div class="line">            <span class="keyword">if</span>(subName.length&gt;<span class="number">0</span> &amp;&amp; subCookies.hasOwnProperty(subName))&#123;</div><div class="line">                subCookieParts.push(<span class="built_in">encodeURIComponent</span>(subName)+<span class="string">"="</span>+<span class="built_in">encodeURIComponent</span>(subCookies[subName]));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(subCookieParts.length&gt;<span class="number">0</span>)&#123;</div><div class="line">            cookieText+=subCookieParts.join(<span class="string">"&amp;"</span>);</div><div class="line">            <span class="keyword">if</span>(expires <span class="keyword">instanceof</span> <span class="built_in">Date</span>)&#123;</div><div class="line">                cookieText+=<span class="string">"; expires="</span>+expires.toGMTString();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(domain)&#123;</div><div class="line">                cookieText+=<span class="string">"; domain="</span>+domain;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(path)&#123;</div><div class="line">                cookieText+=<span class="string">"; path="</span>+path;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(secure)&#123;</div><div class="line">                cookieText+=<span class="string">"; secure"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            cookieText+=<span class="string">"; expires="</span>+(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>)).toGMTString();</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">document</span>.cookie=cookieText;</div><div class="line">    &#125;,</div><div class="line">    unset: <span class="function"><span class="keyword">function</span> (<span class="params">name,subname,path,domain,secure</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> subcookies=<span class="keyword">this</span>.getAll(name);</div><div class="line">        <span class="keyword">if</span>(subcookies)&#123;</div><div class="line">            <span class="keyword">delete</span> subcookies[subname];</div><div class="line">            <span class="keyword">this</span>.setAll(name,subcookies,<span class="literal">null</span>,path,domain,secure);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    unsetAll: <span class="function"><span class="keyword">function</span> (<span class="params">name,path,domain,secure</span>) </span>&#123;</div><div class="line">        <span class="keyword">this</span>.setAll(name,<span class="literal">null</span>,<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">0</span>),path,domain,secure);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>如果担心开发中可能会达到单域名的cookie上限，子cookie是很好的备选方案，但要防止超过单个cookie的长度限制。<br><strong>不要在cookie中存储重要和敏感数据，cookie数据并非存储在一个安全环境中，其中包含的任何数据都可以被他人访问。</strong></p>
+<h5 id="IE_u7528_u6237_u6570_u636E"><a href="#IE_u7528_u6237_u6570_u636E" class="headerlink" title="IE用户数据"></a>IE用户数据</h5><p>对IE用户数据的访问限制和对cookie的限制类似，要访问某个数据空间，脚本运行的页面必须来自<strong>同一个域名，在同一个路径下，并使用与进行存储的脚本同样的协议。</strong><br>和cookie不同的是，你无法将用户数据访问限制扩展到更多的客户。<strong>用户数据默认是可以跨越会话持久存在的，同时也不会过期，数据需要removeAttribute()方法专门进行删除以释放空间。</strong><br>和cookie一样，IE用户数据并非安全的，不能存储敏感信息。</p>
+<h5 id="Web_u5B58_u50A8_u673A_u5236"><a href="#Web_u5B58_u50A8_u673A_u5236" class="headerlink" title="Web存储机制"></a>Web存储机制</h5><p>Web Storage两个目标：</p>
+<ol>
+<li>提供一种在cookie之外存储会话数据的路径；</li>
+<li>提供一种存储大量可以垮会话存在的数据的机制<h6 id="Storage_u7C7B_u578B"><a href="#Storage_u7C7B_u578B" class="headerlink" title="Storage类型"></a>Storage类型</h6>clear():删除所有值<br>key(index):获取index位置处的值的名字<br>getItem(name):根据指定名字获取对应的值<br>setItem(name,value):为指定的name设置对应的值value<br>removeItem(name):删除由name指定的名值对儿<br>Storage类型只能存储字符串。非字符串的数据在存储之前会被转换为字符串。<h6 id="sessionStorage_u5BF9_u8C61"><a href="#sessionStorage_u5BF9_u8C61" class="headerlink" title="sessionStorage对象"></a>sessionStorage对象</h6>sessionStorage对象存储特定于某个会话的数据，也就是<strong>该数据只保持到浏览器关闭</strong>。存储在sessionStorage中的数据可以跨越页面刷新而存在。<br>sessionStorage对象是Storage的一个实例，故可以使用setItem()或直接设置新的属性来存储数据<br>sessionStorage.setItem(“name”,”ffj”);<br>sessionStorage.name=”ffj”;<br>sessionStorage对象应该主要用于针对会话的小段数据的存储，如果需要跨越会话存储数据，可以选择globalStorage或localStorage。<h6 id="globalStorage"><a href="#globalStorage" class="headerlink" title="globalStorage"></a>globalStorage</h6>globalStorage对象的目的是<strong>跨越会话存储数据</strong>，但有特定的访问限制。需要指定哪些域可以访问该数据。当使用globalStorage的时候，一定要指定一个域名。<strong>对于指定的域名，所有子域也可以访问。</strong><br>//保存数据<br>globalStorage[“wrox.com”].name=”ffj”;<br>//获取数据<br>var name=globalStorage[“wrox.com”].name<br>globalStorage对象不是Storage的实例，而具体的globalStorage[“wrox.com”]才是。这个存储空间对于wrox.com及其所有子域都是可以访问的。<br>如果事先不确定域名，那么使用location.host作为属性名比较安全。<br>如果不使用removeItem()或者delete删除，或者用户未清楚浏览器缓存，存储在globalStorage属性中的数据会一直保留在磁盘上，所以它非常适合在客户端存储文档或者长期保存用户偏好设置。<h6 id="localStorage_u5BF9_u8C61"><a href="#localStorage_u5BF9_u8C61" class="headerlink" title="localStorage对象"></a>localStorage对象</h6>localStorage对象作为<strong>持久保存客户端数据</strong>的方案取代了globalStorage。与globalStorage不同，不能给localStorage指定任何访问规则，规则事先就设定好了。<br>要访问同一个localStorage对象，页面必须来自<strong>同一个域名（子域名无效），同一种协议，在同一个端口上</strong>，相当于globleStorage[location.host]。<br>localStorage对象是Storage的实例，所以可以像使用sessionStorage一样来使用Storage的方法。<br>存储在localStorage中的数据和存储在globalStorage中的数据一样，都遵循：<strong>数据保留到通过javascript删除或者是用户清除浏览器缓存</strong>。<h6 id="storage_u4E8B_u4EF6"><a href="#storage_u4E8B_u4EF6" class="headerlink" title="storage事件"></a>storage事件</h6>对Storage对象的任何修改都会在文档上触发storage事件。setItem()保存数据，delete或removeItem()删除数据，clear()清空数据都会触发该事件<br>该事件的event对象的属性：<br>domain:发生变化的存储空间的域名<br>key:设置或删除的键名<br>newValue:设置值是新值，如果是删除键则是null<br>oldValue：键被更改之前的值。<h6 id="u9650_u5236"><a href="#u9650_u5236" class="headerlink" title="限制"></a>限制</h6>Web Storage对存储空间大小的限制是以每个来源（协议、域、端口）为单位的。即每个来源都有固定大小的空间用于保存自己的数据。<br>localStorage:大多数浏览器会设置每个来源5MB的限制，Chorme和Safari是2.5MB<br>sessionStorage:因浏览器而异</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u79BB_u7EBF_u68C0_u6D4B&quot;&gt;&lt;a href=&quot;#u79BB_u7EBF_u68C0_u6D4B&quot; class=&quot;headerlink&quot; title=&quot;离线检测&quot;&gt;&lt;/a&gt;离线检测&lt;/h3&gt;&lt;p&gt;navigator.onLine属性，值为tru
+    
+    </summary>
+    
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
+    
+    
+      <category term="cookie,storage" scheme="https://yoursite.com/tags/cookie-storage/"/>
     
   </entry>
   
@@ -51,7 +94,7 @@
     <link href="https://yoursite.com/2016/06/18/CSS%E5%B1%85%E4%B8%AD/"/>
     <id>https://yoursite.com/2016/06/18/CSS居中/</id>
     <published>2016-06-18T11:50:20.000Z</published>
-    <updated>2016-08-04T02:46:23.288Z</updated>
+    <updated>2016-08-05T14:21:31.458Z</updated>
     
     <content type="html"><![CDATA[<p>翻译：<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">https://css-tricks.com/centering-css-complete-guide/</a></p>
 <h3 id="u4E00_u3001_u6C34_u5E73_u5C45_u4E2D"><a href="#u4E00_u3001_u6C34_u5E73_u5C45_u4E2D" class="headerlink" title="一、水平居中"></a>一、水平居中</h3><p>1.如果元素是inline或者inline-*（比如文本或者链接），它的父级元素display值为block，让子元素水平居中的样式是在父元素上设置如下样式:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.center-children</span>&#123;</div><div class="line">    <span class="attribute">text-align</span>:center;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -145,7 +188,7 @@
     
     </summary>
     
-      <category term="-front" scheme="https://yoursite.com/categories/front/"/>
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
     
     
       <category term="CSS" scheme="https://yoursite.com/tags/CSS/"/>
@@ -157,7 +200,7 @@
     <link href="https://yoursite.com/2016/05/18/%E9%97%AD%E5%8C%85%E8%AF%A6%E8%A7%A3/"/>
     <id>https://yoursite.com/2016/05/18/闭包详解/</id>
     <published>2016-05-18T11:50:16.000Z</published>
-    <updated>2016-08-02T14:14:41.654Z</updated>
+    <updated>2016-08-05T14:21:20.828Z</updated>
     
     <content type="html"><![CDATA[<h3 id="u95ED_u5305_u5B9A_u4E49"><a href="#u95ED_u5305_u5B9A_u4E49" class="headerlink" title="闭包定义"></a>闭包定义</h3><p>闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的常见方式就是在一个函数内部创建另一个函数。<br><em>注意：别再对闭包和匿名函数的关系充满疑惑了，匿名函数即没有名字的函数，而闭包是能访问函数之外定义的变量。如果一个匿名函数能访问函数之外定义的变量，那它就是一个闭包。</em><br>由于闭包也是一个函数，我们首先要了解函数第一次被调用时发生了什么。当某个函数被调用时，会创建一个执行环境及相应的作用域链。然后，使用arguments和其他命名参数的值来初始化函数的活动对象。在作用域链中，被调用的函数的活动对象处于<strong>第一位</strong>，它外部函数的活动对象处于<strong>第二位</strong>，外部的外部活动对象处于<strong>第三位</strong>……直到作用域链终点的全局执行环境。</p>
 <h3 id="u6267_u884C_u73AF_u5883"><a href="#u6267_u884C_u73AF_u5883" class="headerlink" title="执行环境"></a>执行环境</h3><p>执行环境定义了变量或函数有权访问的其他数据，决定了它们各自的行为。每个执行环境都有一个与之关联的变量对象，环境中定义的所有变量和函数都保存在这个对象中，虽然代码无法访问该对象，但解析器在处理数据时会在后台使用它。（执行环境即在执行的瞬间，它所包含的变量对象）<br>全局执行环境在浏览器中被认为是window对象，因此所有全局变量和函数都是作为window对象的属性和方法创建的。<br>全局环境的变量对象始终存在（全局执行环境直到应用程序退出，例如关闭网页或浏览器时才会被销毁），而局部环境的变量对象，则只在函数执行的过程中存在，执行完毕后，该环境被销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	alert(a);</div><div class="line">&#125;</div><div class="line">test(); <span class="comment">//1</span></div></pre></td></tr></table></figure></p>
@@ -173,7 +216,7 @@
     
     </summary>
     
-      <category term="-front" scheme="https://yoursite.com/categories/front/"/>
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
     
     
       <category term="闭包,JS" scheme="https://yoursite.com/tags/%E9%97%AD%E5%8C%85-JS/"/>
@@ -185,7 +228,7 @@
     <link href="https://yoursite.com/2016/02/26/Ajax%E8%AF%A6%E8%A7%A3/"/>
     <id>https://yoursite.com/2016/02/26/Ajax详解/</id>
     <published>2016-02-26T08:00:24.000Z</published>
-    <updated>2016-08-02T14:21:01.747Z</updated>
+    <updated>2016-08-05T14:21:00.606Z</updated>
     
     <content type="html"><![CDATA[<p>Ajax技术的核心是XMLHttpRequest，这种技术就是（异步）无需刷新页面即可从服务器取得数据，但不一定是XML数据。</p>
 <h4 id="u4F7F_u7528XMLHttpRequest_u5BF9_u8C61"><a href="#u4F7F_u7528XMLHttpRequest_u5BF9_u8C61" class="headerlink" title="使用XMLHttpRequest对象"></a>使用XMLHttpRequest对象</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createXHR</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//IE7及更高版本</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> XMLHttpRequest!=<span class="string">"undefined"</span>)&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> ActiveXObject!=<span class="string">"undefined"</span>)&#123;</div><div class="line">        <span class="comment">//适用于IE7之前版本</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.activeXString!=<span class="string">"string"</span>)&#123;</div><div class="line">     <span class="keyword">var</span> versions=[<span class="string">"MSXML2.XMLHttp.6.0"</span>,<span class="string">"MSXML2.XMLHttp.3.0"</span>,<span class="string">"MSXML2.XMLHttp"</span>];</div><div class="line">     <span class="keyword">var</span> i,len;</div><div class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>,len=versions.length;i&lt;len;i++)&#123;</div><div class="line">      <span class="keyword">try</span>&#123;</div><div class="line">          <span class="keyword">new</span> ActiveXObject(versions[i]);</div><div class="line">          <span class="built_in">arguments</span>.callee.activeXString=versions[i];</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">       &#125;<span class="keyword">catch</span> (ex)&#123;</div><div class="line">                    <span class="comment">//跳过</span></div><div class="line">       &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="built_in">arguments</span>.callee.activeXString);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"no XHR object available"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -221,10 +264,10 @@
     
     </summary>
     
-      <category term="-front -JavaScript" scheme="https://yoursite.com/categories/front-JavaScript/"/>
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
     
     
-      <category term="JavaScript高级程序设计" scheme="https://yoursite.com/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <category term="JavaScript高级程序设计,JS" scheme="https://yoursite.com/tags/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-JS/"/>
     
   </entry>
   
@@ -233,7 +276,7 @@
     <link href="https://yoursite.com/2016/01/23/%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
     <id>https://yoursite.com/2016/01/23/声明提升/</id>
     <published>2016-01-23T12:32:08.000Z</published>
-    <updated>2016-08-02T14:14:14.601Z</updated>
+    <updated>2016-08-05T14:22:17.958Z</updated>
     
     <content type="html"><![CDATA[<h3 id="u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="函数声明提升："></a>函数声明提升：</h3><p>在执行代码之前会先读取函数声明，即可以把函数声明放在调用它的语句后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test();  <span class="comment">//It's a test.</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"It's a test."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="变量声明提升："></a>变量声明提升：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">0</span>;</div></pre></td></tr></table></figure>
@@ -258,7 +301,7 @@
     
     </summary>
     
-      <category term="-front" scheme="https://yoursite.com/categories/front/"/>
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
     
     
       <category term="变量、函数声明提升" scheme="https://yoursite.com/tags/%E5%8F%98%E9%87%8F%E3%80%81%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
@@ -270,7 +313,7 @@
     <link href="https://yoursite.com/2016/01/23/%E8%B7%A8%E5%9F%9F/"/>
     <id>https://yoursite.com/2016/01/23/跨域/</id>
     <published>2016-01-23T12:32:08.000Z</published>
-    <updated>2016-08-02T14:14:31.479Z</updated>
+    <updated>2016-08-05T14:22:09.114Z</updated>
     
     <content type="html"><![CDATA[<p>通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以防止某些恶意行为。</p>
 <h6 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h6><p>CORS跨源资源共享，基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。即CORS是为了让AJAX可以实现可控的跨域访问而产生。<br>在发送请求时需要附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口号），以便服务器根据这个头部信息来决定是否给予响应。示例如：<br>Origin: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a><br>如果服务器认为这个请求可以接受，就在<strong>Access-Control-Allow-Origin</strong>头部中回发相同的源信息（如果是公共资源，可以回发”*”），例如：<br>Access-Control-Allow-Origin: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
@@ -295,7 +338,7 @@
     
     </summary>
     
-      <category term="-front" scheme="https://yoursite.com/categories/front/"/>
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
     
     
       <category term="跨域,JS" scheme="https://yoursite.com/tags/%E8%B7%A8%E5%9F%9F-JS/"/>
@@ -307,7 +350,7 @@
     <link href="https://yoursite.com/2015/05/14/JS%E7%AE%80%E4%BB%8B/"/>
     <id>https://yoursite.com/2015/05/14/JS简介/</id>
     <published>2015-05-14T13:24:19.000Z</published>
-    <updated>2016-08-02T14:15:31.551Z</updated>
+    <updated>2016-08-05T14:21:48.827Z</updated>
     
     <content type="html"><![CDATA[<h3 id="u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A"><a href="#u4E00_u4E2A_u5B8C_u6574_u7684JavaScript_u5B9E_u73B0_u5305_u62EC_uFF1A" class="headerlink" title="一个完整的JavaScript实现包括："></a>一个完整的JavaScript实现包括：</h3><ul>
 <li>核心（ECMAScript）</li>
@@ -331,7 +374,7 @@
     
     </summary>
     
-      <category term="-front" scheme="https://yoursite.com/categories/front/"/>
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
     
     
       <category term="JS" scheme="https://yoursite.com/tags/JS/"/>
@@ -343,7 +386,7 @@
     <link href="https://yoursite.com/2015/05/13/markdown/"/>
     <id>https://yoursite.com/2015/05/13/markdown/</id>
     <published>2015-05-13T13:24:19.000Z</published>
-    <updated>2016-08-02T14:13:48.161Z</updated>
+    <updated>2016-08-05T14:21:54.807Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Markdown_u5165_u95E8_u6307_u5357"><a href="#Markdown_u5165_u95E8_u6307_u5357" class="headerlink" title="Markdown入门指南"></a>Markdown入门指南</h2><h3 id="u6807_u9898"><a href="#u6807_u9898" class="headerlink" title="标题"></a>标题</h3><p># 一级标题<br>## 二级标题<br>### 三级标题<br>#### 四级标题<br>#####  五级标题<br>###### 六级标题</p>
 <h3 id="u5217_u8868"><a href="#u5217_u8868" class="headerlink" title="列表"></a>列表</h3><h4 id="u65E0_u5E8F_u5217_u8868"><a href="#u65E0_u5E8F_u5217_u8868" class="headerlink" title="无序列表"></a>无序列表</h4><p>无序列表方式：*,+,-</p>
@@ -362,7 +405,7 @@
     
     </summary>
     
-      <category term="-work" scheme="https://yoursite.com/categories/work/"/>
+      <category term="work" scheme="https://yoursite.com/categories/work/"/>
     
     
       <category term="markdown" scheme="https://yoursite.com/tags/markdown/"/>

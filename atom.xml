@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yoursite.com/"/>
-  <updated>2016-08-05T14:21:40.571Z</updated>
+  <updated>2016-08-08T06:49:00.964Z</updated>
   <id>https://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>清除浮动</title>
+    <link href="https://yoursite.com/2016/08/02/clearBoth/"/>
+    <id>https://yoursite.com/2016/08/02/clearBoth/</id>
+    <published>2016-08-02T00:00:24.000Z</published>
+    <updated>2016-08-08T06:49:00.964Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="u6D6E_u52A8_u5143_u7D20_u5F15_u8D77_u7684_u95EE_u9898_uFF1A"><a href="#u6D6E_u52A8_u5143_u7D20_u5F15_u8D77_u7684_u95EE_u9898_uFF1A" class="headerlink" title="浮动元素引起的问题："></a>浮动元素引起的问题：</h3><ol>
+<li>父元素的高度无法被撑开，影响与父元素同级的元素</li>
+<li>与浮动元素同级的非浮动元素会跟随其后</li>
+<li>如果不是第一个元素浮动，那该元素之前的元素也需要浮动，否则会影响页面的结构。</li>
+</ol>
+<h3 id="u6E05_u9664_u6D6E_u52A8_u7684_u51E0_u79CD_u65B9_u6CD5_uFF1A"><a href="#u6E05_u9664_u6D6E_u52A8_u7684_u51E0_u79CD_u65B9_u6CD5_uFF1A" class="headerlink" title="清除浮动的几种方法："></a>清除浮动的几种方法：</h3><h5 id="1-__u989D_u5916_u6807_u7B7E_u6CD5"><a href="#1-__u989D_u5916_u6807_u7B7E_u6CD5" class="headerlink" title="1. 额外标签法"></a>1. 额外标签法</h5><p>在容器的结束标签前添加一个空标签，在空标签上直接设置样式 “clear:both”，该方法不适合语义化。</p>
+<h5 id="2-_u4F7F_u7528overflow"><a href="#2-_u4F7F_u7528overflow" class="headerlink" title="2.使用overflow"></a>2.使用overflow</h5><p>在具有浮动元素的父容器中设置”overflow”的属性值为”hidden”或”atuo”，这样父容器就会有一个高度存在，清除浮动。</p>
+<h5 id="3-__u4F7F_u7528_u4F2A_u5143_u7D20"><a href="#3-__u4F7F_u7528_u4F2A_u5143_u7D20" class="headerlink" title="3. 使用伪元素"></a>3. 使用伪元素</h5><p>根据上下文，清除浮动更好的方法是<strong>clearfix技巧</strong>。clearfix技巧是基于在父元素上使用”:before”和”:after”两个伪类，使用这些伪类，我们可以在浮动元素的父容器前面和后面创建隐藏元素。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.parent:after&#123;</div><div class="line">   content:"";</div><div class="line">   display: block;</div><div class="line">   clear:both;</div><div class="line">&#125;</div><div class="line">.parent&#123;</div><div class="line">   *zoom:1; //兼容IE6和IE7</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="u5176_u4ED6_u65B9_u6CD5"><a href="#u5176_u4ED6_u65B9_u6CD5" class="headerlink" title="其他方法"></a>其他方法</h3><ol>
+<li>浮动外部元素</li>
+<li>父级定义display:table</li>
+<li>父级定义height</li>
+</ol>
+<h3 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h3><p><strong>清除浮动时不同的场景应该使用不同的技巧</strong></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u6D6E_u52A8_u5143_u7D20_u5F15_u8D77_u7684_u95EE_u9898_uFF1A&quot;&gt;&lt;a href=&quot;#u6D6E_u52A8_u5143_u7D20_u5F15_u8D77_u7684_u95EE_u9898_uFF1A&quot; 
+    
+    </summary>
+    
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
+    
+    
+      <category term="CSS" scheme="https://yoursite.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>

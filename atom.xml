@@ -378,6 +378,50 @@
   </entry>
   
   <entry>
+    <title>BFC</title>
+    <link href="https://yoursite.com/2016/03/18/BFC/"/>
+    <id>https://yoursite.com/2016/03/18/BFC/</id>
+    <published>2016-03-18T01:20:20.000Z</published>
+    <updated>2016-08-15T09:25:18.304Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="BFC_uFF08_u5757_u7EA7_u683C_u5F0F_u4E0A_u4E0B_u6587_uFF09_uFF1A"><a href="#BFC_uFF08_u5757_u7EA7_u683C_u5F0F_u4E0A_u4E0B_u6587_uFF09_uFF1A" class="headerlink" title="BFC（块级格式上下文）："></a>BFC（块级格式上下文）：</h3><h4 id="BFC_u89E6_u53D1_u6761_u4EF6_uFF1A"><a href="#BFC_u89E6_u53D1_u6761_u4EF6_uFF1A" class="headerlink" title="BFC触发条件："></a>BFC触发条件：</h4><ul>
+<li>浮动元素，float除none以外的值</li>
+<li>绝对定位元素，元素的position为absolute或fixed</li>
+<li>display为以下其中之一的值：inline-block,table-cell,table-caption</li>
+<li>overflow值不为visible的元素</li>
+<li>弹性盒子，元素的display为flex或inline-flex</li>
+</ul>
+<p>BFC就是“块级格式化上下文”的意思，创建了 BFC的元素就是一个独立的盒子，不过只有Block-level box可以参与创建BFC， 它规定了内部的Block-level Box如何布局，并且这个独立盒子里的布局不受外部影响，它也不会影响到外面的元素。</p>
+<h4 id="BFC_u6709_u4EE5_u4E0B_u7279_u6027_uFF1A"><a href="#BFC_u6709_u4EE5_u4E0B_u7279_u6027_uFF1A" class="headerlink" title="BFC有以下特性："></a>BFC有以下特性：</h4><ol>
+<li>内部的Box会在垂直方向，从顶部开始一个接一个地放置。</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生叠加</li>
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box叠加。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。</li>
+<li>计算BFC的高度时，浮动元素也参与计算。</li>
+</ol>
+<h4 id="BFC_u4F5C_u7528"><a href="#BFC_u4F5C_u7528" class="headerlink" title="BFC作用"></a>BFC作用</h4><ol>
+<li>阻止外边距折叠<br>当为元素设置overflow:hidden, 就产生一个块级格式上下文，相邻的BFC相互独立，外边距就不会相互重叠。</li>
+<li>包含浮动元素<br>如果块级元素中含有浮动元素会发生高度塌陷，将该块级元素变成一个BFC后，BFC在计算高度时会自动将浮动元素计算在内，块级元素就有了高度。</li>
+<li>阻止元素被浮动元素覆盖<br>当元素浮动时，会与后面的块级元素产生相互叠加，此时将后面的块级元素创建一个BFC，就可以解决，因为BFC区域不会与浮动块叠加。</li>
+<li>兼容性<br>由于IE6-7不支持BFC,而是使用私有属性hasLayout,故需要考虑兼容性，除了使用overflow:hidden 触发BFC外，还需使用*zoom:1 的属性，zoom用于设置或检索元素的缩放比例，值为1即使用元素的实际尺寸。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;BFC_uFF08_u5757_u7EA7_u683C_u5F0F_u4E0A_u4E0B_u6587_uFF09_uFF1A&quot;&gt;&lt;a href=&quot;#BFC_uFF08_u5757_u7EA7_u683C_u5F0F_u4E0A_u4E0B_u6587_uFF09
+    
+    </summary>
+    
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
+    
+    
+      <category term="CSS" scheme="https://yoursite.com/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ajax详解</title>
     <link href="https://yoursite.com/2016/02/26/Ajax%E8%AF%A6%E8%A7%A3/"/>
     <id>https://yoursite.com/2016/02/26/Ajax详解/</id>
@@ -426,43 +470,6 @@
   </entry>
   
   <entry>
-    <title>声明提升</title>
-    <link href="https://yoursite.com/2016/01/23/%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
-    <id>https://yoursite.com/2016/01/23/声明提升/</id>
-    <published>2016-01-23T12:32:08.000Z</published>
-    <updated>2016-08-05T14:22:17.958Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="函数声明提升："></a>函数声明提升：</h3><p>在执行代码之前会先读取函数声明，即可以把函数声明放在调用它的语句后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test();  <span class="comment">//It's a test.</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"It's a test."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="变量声明提升："></a>变量声明提升：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">0</span>;</div></pre></td></tr></table></figure>
-<p>代码执行时js引擎会将声明语句提升至代码最上方，变为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>);</div><div class="line">x=<span class="number">0</span>;</div></pre></td></tr></table></figure></p>
-<h3 id="u4EE3_u7801_u5206_u6790_u4E00"><a href="#u4EE3_u7801_u5206_u6790_u4E00" class="headerlink" title="代码分析一"></a>代码分析一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出function x()&#123; &#125;</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">4</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div></pre></td></tr></table></figure>
-<p>实际执行的代码为，先将 var x=4 拆分为 var x; 和 x = 4; 两行，再将 var x; 和 function x(){} 两行提升至最上方变成：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="built_in">console</span>.log(x);</div><div class="line">x=<span class="number">4</span>;</div></pre></td></tr></table></figure></p>
-<p>所以最终函数声明的x覆盖了变量声明的x，console.log输出为x函数。</p>
-<h3 id="u4EE3_u7801_u5206_u6790_u4E8C"><a href="#u4EE3_u7801_u5206_u6790_u4E8C" class="headerlink" title="代码分析二"></a>代码分析二</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出function x()&#123; &#125;</span></div></pre></td></tr></table></figure>
-<p>函数声明会覆盖变量声明</p>
-<h3 id="u4EE3_u7801_u5206_u6790_u4E09"><a href="#u4EE3_u7801_u5206_u6790_u4E09" class="headerlink" title="代码分析三"></a>代码分析三</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x=<span class="number">4</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出4</span></div></pre></td></tr></table></figure>
-<p>如果变量声明的同时又初始化，或者先声明之后再初始化，则变量优先级高于函数声明</p>
-<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><ol>
-<li><strong> 变量声明提升：变量声明在进入执行上下文就完成了。</strong><br>只要变量在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</li>
-<li><strong> 函数声明提升：执行代码之前会先读取函数声明，意味着可以把函数声明放在调用它的语句后面。</strong><br>只要函数在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</li>
-<li><strong> 变量和函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。</strong><br>同一个名称标识x，既有变量声明var x，又有函数声明function x() {} 不管二者声明的顺序， 函数声明会覆盖变量声明， 也就是说， 此时x的值是声明的函数function x() {}。注意：如果在变量声明的同时初始化x，或是在之后对x进行赋值，此时x的值是变量的值。</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot;&gt;&lt;a href=&quot;#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot; class=&quot;headerlink&quot; title=&quot;函数声明提升：&quot;&gt;&lt;
-    
-    </summary>
-    
-      <category term="front" scheme="https://yoursite.com/categories/front/"/>
-    
-    
-      <category term="变量、函数声明提升" scheme="https://yoursite.com/tags/%E5%8F%98%E9%87%8F%E3%80%81%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
-    
-  </entry>
-  
-  <entry>
     <title>跨域方法总结</title>
     <link href="https://yoursite.com/2016/01/23/%E8%B7%A8%E5%9F%9F/"/>
     <id>https://yoursite.com/2016/01/23/跨域/</id>
@@ -496,6 +503,43 @@
     
     
       <category term="跨域,JS" scheme="https://yoursite.com/tags/%E8%B7%A8%E5%9F%9F-JS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>声明提升</title>
+    <link href="https://yoursite.com/2016/01/23/%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
+    <id>https://yoursite.com/2016/01/23/声明提升/</id>
+    <published>2016-01-23T12:32:08.000Z</published>
+    <updated>2016-08-05T14:22:17.958Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="函数声明提升："></a>函数声明提升：</h3><p>在执行代码之前会先读取函数声明，即可以把函数声明放在调用它的语句后面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">test();  <span class="comment">//It's a test.</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    alert(<span class="string">"It's a test."</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A"><a href="#u53D8_u91CF_u58F0_u660E_u63D0_u5347_uFF1A" class="headerlink" title="变量声明提升："></a>变量声明提升：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>); <span class="comment">//true</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">0</span>;</div></pre></td></tr></table></figure>
+<p>代码执行时js引擎会将声明语句提升至代码最上方，变为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"x"</span> <span class="keyword">in</span> <span class="built_in">window</span>);</div><div class="line">x=<span class="number">0</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="u4EE3_u7801_u5206_u6790_u4E00"><a href="#u4EE3_u7801_u5206_u6790_u4E00" class="headerlink" title="代码分析一"></a>代码分析一</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出function x()&#123; &#125;</span></div><div class="line"><span class="keyword">var</span> x=<span class="number">4</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div></pre></td></tr></table></figure>
+<p>实际执行的代码为，先将 var x=4 拆分为 var x; 和 x = 4; 两行，再将 var x; 和 function x(){} 两行提升至最上方变成：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="built_in">console</span>.log(x);</div><div class="line">x=<span class="number">4</span>;</div></pre></td></tr></table></figure></p>
+<p>所以最终函数声明的x覆盖了变量声明的x，console.log输出为x函数。</p>
+<h3 id="u4EE3_u7801_u5206_u6790_u4E8C"><a href="#u4EE3_u7801_u5206_u6790_u4E8C" class="headerlink" title="代码分析二"></a>代码分析二</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出function x()&#123; &#125;</span></div></pre></td></tr></table></figure>
+<p>函数声明会覆盖变量声明</p>
+<h3 id="u4EE3_u7801_u5206_u6790_u4E09"><a href="#u4EE3_u7801_u5206_u6790_u4E09" class="headerlink" title="代码分析三"></a>代码分析三</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x=<span class="number">4</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123; &#125;</div><div class="line"><span class="built_in">console</span>.log(x); <span class="comment">//输出4</span></div></pre></td></tr></table></figure>
+<p>如果变量声明的同时又初始化，或者先声明之后再初始化，则变量优先级高于函数声明</p>
+<h2 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><strong> 变量声明提升：变量声明在进入执行上下文就完成了。</strong><br>只要变量在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</li>
+<li><strong> 函数声明提升：执行代码之前会先读取函数声明，意味着可以把函数声明放在调用它的语句后面。</strong><br>只要函数在代码中进行了声明，无论它在哪个位置上进行声明， js引擎都会将它的声明放在范围作用域的顶部；</li>
+<li><strong> 变量和函数声明：函数声明会覆盖变量声明，但不会覆盖变量赋值。</strong><br>同一个名称标识x，既有变量声明var x，又有函数声明function x() {} 不管二者声明的顺序， 函数声明会覆盖变量声明， 也就是说， 此时x的值是声明的函数function x() {}。注意：如果在变量声明的同时初始化x，或是在之后对x进行赋值，此时x的值是变量的值。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot;&gt;&lt;a href=&quot;#u51FD_u6570_u58F0_u660E_u63D0_u5347_uFF1A&quot; class=&quot;headerlink&quot; title=&quot;函数声明提升：&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="front" scheme="https://yoursite.com/categories/front/"/>
+    
+    
+      <category term="变量、函数声明提升" scheme="https://yoursite.com/tags/%E5%8F%98%E9%87%8F%E3%80%81%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E%E6%8F%90%E5%8D%87/"/>
     
   </entry>
   

@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   <meta name="baidu-site-verification" content="6fea7fc7276fc383ec5b2080c662f076"/>
   
-  <title>about | 前端Learner</title>
+  <title>javascript数组去重总结 | 前端Learner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总结是进步的阶梯。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://yoursite.com/about/index.html">
+  <meta name="description" content="针对数字及字符串的数组去重方法测试数组：var arr=[3,1,7,’7’,1,’a’,3,5,’a’,3,’b’];输出：[1, 7, “7”, “a”, 3, 5, “b”]
+方法一：12345678910function uniqueArr(arr)&amp;#123;        var uniqArr=[];        var arrLen=arr.length;        for(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript数组去重总结">
+<meta property="og:url" content="https://yoursite.com/2016/05/18/uniqueArr/index.html">
 <meta property="og:site_name" content="前端Learner">
-<meta property="og:description" content="总结是进步的阶梯。">
-<meta property="og:updated_time" content="2016-02-26T07:57:45.272Z">
+<meta property="og:description" content="针对数字及字符串的数组去重方法测试数组：var arr=[3,1,7,’7’,1,’a’,3,5,’a’,3,’b’];输出：[1, 7, “7”, “a”, 3, 5, “b”]
+方法一：12345678910function uniqueArr(arr)&amp;#123;        var uniqArr=[];        var arrLen=arr.length;        for(">
+<meta property="og:updated_time" content="2016-08-15T01:48:23.320Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="总结是进步的阶梯。">
+<meta name="twitter:title" content="javascript数组去重总结">
+<meta name="twitter:description" content="针对数字及字符串的数组去重方法测试数组：var arr=[3,1,7,’7’,1,’a’,3,5,’a’,3,’b’];输出：[1, 7, “7”, “a”, 3, 5, “b”]
+方法一：12345678910function uniqueArr(arr)&amp;#123;        var uniqArr=[];        var arrLen=arr.length;        for(">
   
     <link rel="alternative" href="/atom.xml" title="前端Learner" type="application/atom+xml">
   
@@ -184,7 +187,7 @@
 
 	  <!--是否开启最近通知-->
 	  
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-uniqueArr" class="article article-type-post" itemscope itemprop="blogPost">
     <script>
         $("html").niceScroll({
             cursorcolor: "#2a2929",
@@ -198,8 +201,8 @@
     </script>
     
         <div class="article-meta">
-            <a href="/about/index.html" class="article-date">
-  	<time datetime="2016-02-26T07:57:45.000Z" itemprop="datePublished">2016-02-26</time>
+            <a href="/2016/05/18/uniqueArr/" class="article-date">
+  	<time datetime="2016-05-18T11:20:20.000Z" itemprop="datePublished">2016-05-18</time>
 </a>
 
         </div>
@@ -213,7 +216,7 @@
                                 
   
     <h1 class="article-title" itemprop="name">
-      about
+      javascript数组去重总结
     </h1>
   
 
@@ -222,8 +225,16 @@
                             
                                 <div class="article-info article-info-post">
                                     
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+	</div>
+
 
                                         
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front/">front</a>
+	</div>
+
 
                                             <div class="clearfix"></div>
                                 </div>
@@ -234,7 +245,7 @@
                                                     <!--02-->
                                                     <p class="toc-button">目录</p>
 <div id="toc" class="toc-article" style="display:none;">
-    
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#u9488_u5BF9_u6570_u5B57_u53CA_u5B57_u7B26_u4E32_u7684_u6570_u7EC4_u53BB_u91CD_u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">针对数字及字符串的数组去重方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#u65B9_u6CD5_u4E00_uFF1A"><span class="toc-number">1.0.1.</span> <span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u65B9_u6CD5_u4E8C_uFF1A"><span class="toc-number">1.0.2.</span> <span class="toc-text">方法二：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u65B9_u6CD5_u4E09_uFF1A"><span class="toc-number">1.0.3.</span> <span class="toc-text">方法三：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u65B9_u6CD5_u56DB_uFF1A"><span class="toc-number">1.0.4.</span> <span class="toc-text">方法四：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u65B9_u6CD5_u4E94_uFF1A"><span class="toc-number">1.0.5.</span> <span class="toc-text">方法五：</span></a></li></ol></li></ol></li></ol>
 </div>
 <script>
     $(function(){
@@ -264,7 +275,12 @@
                                                         
                                                             
                                                                 
-                                                                            
+                                                                            <h4 id="u9488_u5BF9_u6570_u5B57_u53CA_u5B57_u7B26_u4E32_u7684_u6570_u7EC4_u53BB_u91CD_u65B9_u6CD5"><a href="#u9488_u5BF9_u6570_u5B57_u53CA_u5B57_u7B26_u4E32_u7684_u6570_u7EC4_u53BB_u91CD_u65B9_u6CD5" class="headerlink" title="针对数字及字符串的数组去重方法"></a>针对数字及字符串的数组去重方法</h4><p>测试数组：var arr=[3,1,7,’7’,1,’a’,3,5,’a’,3,’b’];<br>输出：[1, 7, “7”, “a”, 3, 5, “b”]</p>
+<h6 id="u65B9_u6CD5_u4E00_uFF1A"><a href="#u65B9_u6CD5_u4E00_uFF1A" class="headerlink" title="方法一："></a>方法一：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqueArr</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> uniqArr=[];</div><div class="line">        <span class="keyword">var</span> arrLen=arr.length;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arrLen;i++)&#123;</div><div class="line">            <span class="keyword">if</span>(uniqArr.indexOf(arr[i])==<span class="number">-1</span>)&#123;</div><div class="line">                uniqArr.push(arr[i]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> uniqArr;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h6 id="u65B9_u6CD5_u4E8C_uFF1A"><a href="#u65B9_u6CD5_u4E8C_uFF1A" class="headerlink" title="方法二："></a>方法二：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqueArr</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> [...new <span class="built_in">Set</span>(arr)];</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h6 id="u65B9_u6CD5_u4E09_uFF1A"><a href="#u65B9_u6CD5_u4E09_uFF1A" class="headerlink" title="方法三："></a>方法三：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqueArr</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr));</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h6 id="u65B9_u6CD5_u56DB_uFF1A"><a href="#u65B9_u6CD5_u56DB_uFF1A" class="headerlink" title="方法四："></a>方法四：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqArr</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> arr.filter((item,index)=&gt;&#123;</div><div class="line">		<span class="keyword">return</span> arr.indexOf(item)===index&#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h6 id="u65B9_u6CD5_u4E94_uFF1A"><a href="#u65B9_u6CD5_u4E94_uFF1A" class="headerlink" title="方法五："></a>方法五：</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">uniqArr</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> arr.filter((item,index)=&gt;&#123;</div><div class="line">		<span class="keyword">return</span> arr.lastIndexOf(item)===index&#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
                                                                                 
                                         </div>
                                         
@@ -288,11 +304,30 @@
                 
                     
                         
+<nav id="article-nav">
+  
+    <a href="/2016/05/18/闭包详解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          闭包详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/26/Ajax详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ajax详解</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
 
                             
                                 <!-- 多说评论框 start -->
                                 
-                                    <div class="ds-thread" data-thread-key="page-undefined" data-title="about" data-url="https://yoursite.com/about/index.html"></div>
+                                    <div class="ds-thread" data-thread-key="post-uniqueArr" data-title="javascript数组去重总结" data-url="https://yoursite.com/2016/05/18/uniqueArr/"></div>
                                     <!-- 多说评论框 end -->
                                     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
                                     <script type="text/javascript">

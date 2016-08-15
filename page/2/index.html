@@ -115,7 +115,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JavaScript高级程序设计-JS/" style="font-size: 10px;">JavaScript高级程序设计,JS</a> <a href="/tags/cookie-storage/" style="font-size: 10px;">cookie,storage</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/跨域-JS/" style="font-size: 10px;">跨域,JS</a> <a href="/tags/闭包-JS/" style="font-size: 10px;">闭包,JS</a>
+						<a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JavaScript高级程序设计-JS/" style="font-size: 10px;">JavaScript高级程序设计,JS</a> <a href="/tags/cookie-storage/" style="font-size: 10px;">cookie,storage</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/变量、函数声明提升/" style="font-size: 10px;">变量、函数声明提升</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/跨域-JS/" style="font-size: 10px;">跨域,JS</a> <a href="/tags/闭包-JS/" style="font-size: 10px;">闭包,JS</a>
 					</div>
 				</section>
 				
@@ -252,6 +252,128 @@
      </div>
 
 
+
+  
+    <article id="post-跨域" class="article article-type-post" itemscope itemprop="blogPost">
+    <script>
+        $("html").niceScroll({
+            cursorcolor: "#2a2929",
+            cursoropacitymax: 1,
+            touchbehavior: false,
+            cursorwidth: "6px",
+            cursorborder: "5",
+            cursorborderradius: "0px",
+            autohidemode: true
+        });
+    </script>
+    
+        <div class="article-meta">
+            <a href="/2016/01/23/跨域/" class="article-date">
+  	<time datetime="2016-01-23T12:32:08.000Z" itemprop="datePublished">2016-01-23</time>
+</a>
+
+        </div>
+        
+            <div class="article-inner">
+                
+                    <input type="hidden" class="isFancy" />
+                    
+                        
+                            <header class="article-header">
+                                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/23/跨域/">跨域方法总结</a>
+    </h1>
+  
+
+
+                            </header>
+                            
+                                    
+                                        <div class="article-entry" itemprop="articleBody">
+                                            
+                                                    <!--02-->
+                                                    <p class="toc-button">目录</p>
+<div id="toc" class="toc-article" style="display:none;">
+    <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#CORS"><span class="toc-number">1.</span> <span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u56FE_u50CFPing"><span class="toc-number">2.</span> <span class="toc-text">图像Ping</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#JSONP"><span class="toc-number">3.</span> <span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Comet"><span class="toc-number">4.</span> <span class="toc-text">Comet</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#u670D_u52A1_u5668_u53D1_u9001_u4E8B_u4EF6SSE"><span class="toc-number">5.</span> <span class="toc-text">服务器发送事件SSE</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Web_Sockets"><span class="toc-number">6.</span> <span class="toc-text">Web Sockets</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#u5B89_u5168"><span class="toc-number"></span> <span class="toc-text">安全</span></a>
+</div>
+<script>
+    $(function(){
+
+        var width = document.body.scrollWidth;
+        if (width <=550) {
+             $(".toc-button").css("display","none");
+        }
+        $(".toc-button").hover(function(){
+            var top = $(this).get(0).offsetTop-$(".toc-article").height()/2;
+            $(".toc-article").css({
+                top:top +"px"
+            });
+            $("#toc").show(1000,function(){});
+           // $("#toc").animate({width:500;},3000);
+        },function(){
+
+        });
+        $(".toc-article").hover(function(){
+
+        },function(){
+            $("#toc").hide(1000,function(){});
+        });
+    })
+</script>
+
+                                                        
+                                                            
+                                                                
+                                                                            <p>通过XHR实现Ajax通信的一个主要限制，来源于跨域安全策略。默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。这种安全策略可以防止某些恶意行为。</p>
+<h6 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h6><p>CORS跨源资源共享，基本思想：使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。即CORS是为了让AJAX可以实现可控的跨域访问而产生。<br>在发送请求时需要附加一个额外的Origin头部，其中包含请求页面的源信息（协议、域名和端口号），以便服务器根据这个头部信息来决定是否给予响应。示例如：<br>Origin: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a><br>如果服务器认为这个请求可以接受，就在<strong>Access-Control-Allow-Origin</strong>头部中回发相同的源信息（如果是公共资源，可以回发”*”），例如：<br>Access-Control-Allow-Origin: <a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a></p>
+<p>如果没有这个头部，或者有这个头部但源信息不匹配，浏览器就会驳回请求，正常情况下，浏览器会处理请求．注意：请求和响应都不包含cookie信息。</p>
+<h6 id="u56FE_u50CFPing"><a href="#u56FE_u50CFPing" class="headerlink" title="图像Ping"></a>图像Ping</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img=<span class="keyword">new</span> Image();</div><div class="line">img.onload=img.onerror= <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="string">"Done!"</span>);</div><div class="line">&#125;;</div><div class="line">img.src=<span class="string">"http://www.example.com/test?name=ffj"</span>;</div></pre></td></tr></table></figure>
+<p>图像Ping最常用于跟踪用户点击页面或动态广告曝光次数。<br>缺点：一是只能发送GET请求，二是无法访问服务器的响应文本。<br>因此，图像Ping只能用于浏览器与服务器间的单向通信。</p>
+<h6 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h6><p>JSONP(JSON with padding)填充式JSON，是被包含在函数调用中的JSON.<br>JSONP由两部分组成：回调函数和数据。回调函数是当响应到来时应该在页面中调用的函数。回调函数的名字一般是在请求中指定的。而数据就是传入回调函数中的JSON数据。<br>JSONP是通过动态&lt;script&gt;元素来使用，使用时可以为src属性指定一个跨域URL。这里的&lt;script&gt;元素与&lt;img&gt;元素类似，都有能力不受限制地从其他域加载资源。<br>JSONP是有效的Javascript代码，在请求完成后,JSONP响应加载到页面中以后就可以立即执行。<br>优点：JSONP能够直接访问响应文本，支持在浏览器与服务器之间双向通信。<br>缺点：JSONP是从其他域中加载代码执行，如果其他域不安全，很可能会在响应中夹带恶意代码，因此在使用不是你自己运维的web服务时，一定得保证它安全可靠。其次，要确定JSONP请求是否失败并不容易，开发人员使用计时器检测指定时间内是否收到了响应，但不如人意。</p>
+<h6 id="Comet"><a href="#Comet" class="headerlink" title="Comet"></a>Comet</h6><p>Ajax是一种从页面向服务器请求数据的技术，而Comet是一种服务器向页面推送数据的技术。<br>Comet能够让信息近乎实时地被推送到页面上，非常适合处理体育比赛的分数和股票报价。<br>实现Comet的两种方式：长轮询和流<br>长轮询：页面发起一个到服务器的请求，然后服务器一直保持连接打开，直到有数据可发送。发送完数据之后，浏览器关闭连接，随即又发起一个到服务器的新请求。这一过程在页面打开期间一直持续不断。<br>HTTP流：流在整个生命周期内只使用一个HTTP连接，就是浏览器向服务器发送一个请求，而服务器保持连接打开，然后周期性地向浏览器发送数据。</p>
+<h6 id="u670D_u52A1_u5668_u53D1_u9001_u4E8B_u4EF6SSE"><a href="#u670D_u52A1_u5668_u53D1_u9001_u4E8B_u4EF6SSE" class="headerlink" title="服务器发送事件SSE"></a>服务器发送事件SSE</h6><p>SSE是围绕制度Comet交互推出的API，用于创建到服务器的单向连接，服务器可以发送任意数量的数据，服务器响应的MIME类型必须是text/event-stream，而且是浏览器中的javascript API能解析格式输出。SSE支持短轮询、长轮询和HTTP流，而且能在断开连接时自动确定何时重新连接。</p>
+<h6 id="Web_Sockets"><a href="#Web_Sockets" class="headerlink" title="Web Sockets"></a>Web Sockets</h6><p>Web Sockets的目标是在一个单独的持久连接上提供全双工、双向通信。使用自定义的协议，能够在客户端和服务器之间发送非常少量的数据，而不必担心HTTP那样字节级的开销。适合移动应用。</p>
+<h4 id="u5B89_u5168"><a href="#u5B89_u5168" class="headerlink" title="安全"></a>安全</h4><p>为确保通过XHR访问的URL安全，通行的做法就是验证发送请求者是否有权限访问相应的资源。</p>
+<ol>
+<li>要求以SSL连接来访问可以通过XHR请求的资源</li>
+<li>要求每一次请求都要附带经过相应算法计算得到的验证码</li>
+</ol>
+
+                                                                                
+                                        </div>
+                                        
+                                            <div class="article-info article-info-index">
+                                                
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域-JS/">跨域,JS</a></li></ul>
+	</div>
+
+
+                                                    
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/front/">front</a>
+	</div>
+
+
+                                                        
+                                                                <div class="clearfix"></div>
+                                            </div>
+                                            
+            </div>
+            
+                    
+                                <!-- 多说评论框 start -->
+                                
+</article>
+
+<!--
+
+-->
+<!--
+
+-->
 
   
     <article id="post-JS简介" class="article article-type-post" itemscope itemprop="blogPost">
